@@ -99,11 +99,10 @@
 			isa = PBXGroup;
 			children = (
 				962F05452832D17700F41354 /* Title_CapitalizrApp.swift */,
-				962F05472832D17700F41354 /* ContentView.swift */,
+				96C6765D283402C9005E2907 /* Views */,
+				962F05732832E51700F41354 /* Models.swift */,
 				962F05492832D17900F41354 /* Assets.xcassets */,
 				962F054B2832D17900F41354 /* Preview Content */,
-				962F05712832E46200F41354 /* PickerView.swift */,
-				962F05732832E51700F41354 /* Models.swift */,
 			);
 			path = "Title Capitalizr";
 			sourceTree = "<group>";
@@ -131,6 +130,15 @@
 				962F05622832D17A00F41354 /* Title_CapitalizrUITestsLaunchTests.swift */,
 			);
 			path = "Title CapitalizrUITests";
+			sourceTree = "<group>";
+		};
+		96C6765D283402C9005E2907 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				962F05472832D17700F41354 /* ContentView.swift */,
+				962F05712832E46200F41354 /* PickerView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

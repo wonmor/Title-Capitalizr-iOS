@@ -7,10 +7,18 @@
 
 import SwiftUI
 
+let desiredOutputDict = [DesiredOutput.mla: "MLA",
+                         DesiredOutput.apa: "APA",
+                         DesiredOutput.chicago: "Chicago"]
+
 struct ContentView: View {
     @State private var titleName: String = ""
+    @State private var textOutput: String = ""
     @State private var showingSheet = false
     @State private var selectedOutput: DesiredOutput = .mla
+    
+    // Detect whether OS is on dark mode or light mode
+    @Environment(\.colorScheme) var colorScheme
     
     let pasteboard = UIPasteboard.general
     
@@ -31,7 +39,7 @@ struct ContentView: View {
             
             Button(action: { showingSheet.toggle() }) {
                 VStack {
-                    Text("Press here to select style")
+                    Text("Press here to select **style**")
                         .font(.title2)
                         .padding()
                 }
@@ -49,30 +57,39 @@ struct ContentView: View {
                 .bold()
             TextField("Enter your title name...", text: $titleName)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-        }.padding()
+            Text("Selected: **\(desiredOutputDict[selectedOutput]!)**")
+                .textSelection(.enabled)
+                .multilineTextAlignment(.center)
+        }
+        .padding()
     }
     
     private func resultSection() -> some View {
         VStack {
-            Text(titleName == "" ? "This is where your capitalized title will appear..." : titleName)
+            Text(self.titleName.trimmingCharacters(in: .whitespacesAndNewlines) == "" ? "Your capitalized title will appear here..." : Capitalizer(inputLine: self.titleName).capitalizeTitle(selectedOutput: self.selectedOutput))
                 .textSelection(.enabled)
+                .padding(.leading)
+                .padding(.trailing)
+                .padding(.top)
+                .multilineTextAlignment(.center)
             
-            Button(action: { pasteboard.string = titleName }) {
+            Button(action: { pasteboard.string = self.titleName }) {
                 HStack {
                     Image(systemName: "doc.on.doc.fill")
-                    Text("Copy to clipboard")
+                    Text("Copy to **clipboard**")
                         .font(.body)
                 }
                 .padding(8)
-                .foregroundColor(.black)
+                .foregroundColor(colorScheme == .dark ? .white : .black)
                 .contentShape(Rectangle())
                 .overlay(
                     RoundedRectangle(cornerRadius: 10.0)
                         .stroke(lineWidth: 2.0)
-                        .foregroundColor(.black)
+                        .foregroundColor(colorScheme == .dark ? .white : .black)
                 )
             }
         }
+        
     }
 }
 
