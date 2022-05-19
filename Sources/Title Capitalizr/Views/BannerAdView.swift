@@ -52,9 +52,14 @@ struct SwiftUIBannerAd: View {
     }
     
     func setFrame() {
-      
+        let keyWindow = UIApplication.shared.connectedScenes
+                .filter({$0.activationState == .foregroundActive})
+                .compactMap({$0 as? UIWindowScene})
+                .first?.windows
+                .filter({$0.isKeyWindow}).first
+        
         // Get the frame of the safe area
-        let safeAreaInsets = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.safeAreaInsets ?? .zero
+        let safeAreaInsets = keyWindow?.safeAreaInsets ?? .zero
         let frame = UIScreen.main.bounds.inset(by: safeAreaInsets)
         
         // Use the frame to determine the size of the ad

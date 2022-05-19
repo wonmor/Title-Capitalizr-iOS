@@ -19,7 +19,7 @@ struct ContentView: View {
     
     @State private var showingSheet = false
     @State private var selectedOutput: DesiredOutput = .mla
-
+    
     // Detect whether OS is on dark mode or light mode
     @Environment(\.colorScheme) var colorScheme
     
@@ -32,6 +32,10 @@ struct ContentView: View {
                 textEntry()
                 resultSection()
             }
+            .onTapGesture {
+                hideKeyboard()
+            }
+            
             SwiftUIBannerAd(adPosition: .bottom, adUnitId: bannerUnitID)
         }
     }
@@ -47,7 +51,10 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 .padding()
             
-            Button(action: { showingSheet.toggle() }) {
+            Button(action: {
+                hideKeyboard()
+                showingSheet.toggle()
+            }) {
                 VStack {
                     Text("Press here to choose style")
                         .font(.title2)
@@ -102,6 +109,13 @@ struct ContentView: View {
                 )
             }
         }
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        let resign = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
     }
 }
 
