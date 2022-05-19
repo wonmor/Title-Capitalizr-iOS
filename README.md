@@ -5,7 +5,7 @@ An iOS app that automatically capitalizes the title of your essay. Supports MLA,
 
 ### Official Build 1.0
 
-**Title Capitalizr** will be released on **App Store** soon. App currently in the review phase.
+**Title Capitalizr** will be released on the **App Store** soon. App currently under **review**.
 
 ---
 
