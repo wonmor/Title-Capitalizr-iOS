@@ -11,8 +11,12 @@ An iOS app that automatically capitalizes the title of your essay. Supports MLA,
 
 ---
 
-<img width="500" alt="Screenshot-1" src="https://user-images.githubusercontent.com/35755386/169195435-a5442bab-d120-492e-b4c8-7278fc0f8775.png">
+<table><tr>
 
-<img width="500" alt="Screenshot-2" src="https://user-images.githubusercontent.com/35755386/169195438-f278513f-136f-4fa8-ad72-2ecfe6118931.png">
+<td valign="center"><img width="500" alt="Screenshot-1" src="https://user-images.githubusercontent.com/35755386/169195435-a5442bab-d120-492e-b4c8-7278fc0f8775.png"></td>
 
-<img width="500" alt="Screenshot-3" src="https://user-images.githubusercontent.com/35755386/169195441-51e887a6-5e53-47ae-96ac-27718288066b.png">
+<td valign="center"><img width="500" alt="Screenshot-2" src="https://user-images.githubusercontent.com/35755386/169195438-f278513f-136f-4fa8-ad72-2ecfe6118931.png"></td>
+
+<td valign="center"><img width="500" alt="Screenshot-3" src="https://user-images.githubusercontent.com/35755386/169195441-51e887a6-5e53-47ae-96ac-27718288066b.png"></td>
+
+</tr></table>
