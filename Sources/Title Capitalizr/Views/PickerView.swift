@@ -34,6 +34,9 @@ struct PickerView: View {
             .navigationBarTitle("Customize")
             .navigationBarItems(leading: btnBack)
         }
+        
         Text("Developed and Designed by John Seong")
+        
+        SwiftUIBannerAd(adPosition: .none, adUnitId: bannerUnitID)
     }
 }

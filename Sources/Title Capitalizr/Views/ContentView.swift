@@ -32,7 +32,7 @@ struct ContentView: View {
                 textEntry()
                 resultSection()
             }
-            SwiftUIBannerAd(adPosition: .top, adUnitId: bannerUnitID)
+            SwiftUIBannerAd(adPosition: .bottom, adUnitId: bannerUnitID)
         }
     }
     
@@ -49,7 +49,7 @@ struct ContentView: View {
             
             Button(action: { showingSheet.toggle() }) {
                 VStack {
-                    Text("Press here to select style")
+                    Text("Press here to choose style")
                         .font(.title2)
                         .padding()
                 }

@@ -22,6 +22,7 @@ struct SwiftUIBannerAd: View {
     enum AdPosition {
         case top
         case bottom
+        case none
     }
     
     public var body: some View {
