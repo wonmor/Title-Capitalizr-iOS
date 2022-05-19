@@ -9,22 +9,18 @@ import Foundation
 
 // Dictionaries for storing presets...
 
-let exceptionsForMLA = [
-    "against", "between", "in", "of", "to", "and", "but", "for", "nor", "or", "so", "yet"
+let exceptionsForMLA_Chicago = [
+    "in", "of", "to", "and", "but", "for", "nor", "or", "nor", "so", "yet", "the"
 ]
 
-let exceptionsForAPA = [
-    "against", "between", "in", "of", "to", "and", "but", "for", "nor", "or", "so", "yet"
-]
-
-let exceptionsForChicago = [
-    "against", "between", "in", "of", "to", "and", "but", "for", "nor", "or", "so", "yet"
+let exceptionsForAPA_AP = [
+    "against", "between", "in", "of", "to", "and", "but", "for", "nor", "or", "nor", "so", "yet", "the"
 ]
 
 // This is where the actual logic for the app starts...
 
 enum DesiredOutput: String, CaseIterable, Identifiable {
-    case mla, apa, chicago
+    case mla, apa
     var id: Self { self }
 }
 
@@ -40,16 +36,15 @@ final class Capitalizer: ObservableObject {
         
         switch selectedOutput {
         case .mla:
-            target = exceptionsForMLA
+            target = exceptionsForMLA_Chicago
         case .apa:
-            target = exceptionsForAPA
-        case .chicago:
-            target = exceptionsForChicago
+            target = exceptionsForAPA_AP
         }
         
         self.inputLine = self.inputLine.capitalized
         
         for exception in target {
+            // Apply the exceptions...
             self.inputLine = self.inputLine.replacingOccurrences(of: exception.capitalizingFirstLetter(), with: exception)
         }
         

@@ -10,22 +10,30 @@ import SwiftUI
 struct PickerView: View {
     @Binding var selectedOutput: DesiredOutput
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+        var btnBack : some View { Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+            }) {
+                HStack {
+                Image(systemName: "chevron.backward") // set image here
+                    .aspectRatio(contentMode: .fit)
+                    Text("Back")
+                }
+            }
+        }
+    
     var body: some View {
         NavigationView {
             List {
-                Picker("STYLE", selection: $selectedOutput) {
-                    Text("MLA").tag(DesiredOutput.mla)
-                    Text("APA").tag(DesiredOutput.apa)
-                    Text("CHICAGO").tag(DesiredOutput.chicago)
+                Picker("Style", selection: $selectedOutput) {
+                    Text("MLA and Chicago").tag(DesiredOutput.mla)
+                    Text("APA and AP").tag(DesiredOutput.apa)
                 }
             }
             .navigationBarTitle("Customize")
+            .navigationBarItems(leading: btnBack)
         }
-    }
-}
-
-struct PickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        Text("Developed and Designed by John Seong")
     }
 }

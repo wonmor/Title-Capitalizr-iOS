@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		962F05462832D17700F41354 /* Title_CapitalizrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05452832D17700F41354 /* Title_CapitalizrApp.swift */; };
 		962F05482832D17700F41354 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05472832D17700F41354 /* ContentView.swift */; };
-		962F054A2832D17900F41354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 962F05492832D17900F41354 /* Assets.xcassets */; };
 		962F054D2832D17900F41354 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 962F054C2832D17900F41354 /* Preview Assets.xcassets */; };
 		962F05572832D17900F41354 /* Title_CapitalizrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05562832D17900F41354 /* Title_CapitalizrTests.swift */; };
 		962F05612832D17A00F41354 /* Title_CapitalizrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05602832D17A00F41354 /* Title_CapitalizrUITests.swift */; };
 		962F05632832D17A00F41354 /* Title_CapitalizrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05622832D17A00F41354 /* Title_CapitalizrUITestsLaunchTests.swift */; };
 		962F05722832E46200F41354 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05712832E46200F41354 /* PickerView.swift */; };
 		962F05742832E51700F41354 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05732832E51700F41354 /* Models.swift */; };
+		964565492835AF7200F32798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964565482835AF7200F32798 /* Assets.xcassets */; };
+		96ECFB6F2835C25800DA8C0C /* BannerAdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ECFB6E2835C25800DA8C0C /* BannerAdVC.swift */; };
+		96ECFB722835C30200DA8C0C /* BannerAdViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ECFB712835C30200DA8C0C /* BannerAdViewControllerRepresentable.swift */; };
+		96ECFB752835CC1C00DA8C0C /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ECFB742835CC1C00DA8C0C /* BannerAdView.swift */; };
+		B02A0A591D66CDF8735B081C /* Pods_Title_Capitalizr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3EFEEA2D283A8CE27C5B6A /* Pods_Title_Capitalizr.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		477810BADD236B3533A756C6 /* Pods-Title Capitalizr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Title Capitalizr.release.xcconfig"; path = "Target Support Files/Pods-Title Capitalizr/Pods-Title Capitalizr.release.xcconfig"; sourceTree = "<group>"; };
+		65690E74D8A672C3FFFE71C6 /* Pods-Title Capitalizr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Title Capitalizr.debug.xcconfig"; path = "Target Support Files/Pods-Title Capitalizr/Pods-Title Capitalizr.debug.xcconfig"; sourceTree = "<group>"; };
+		96092B982835BC8800D37546 /* Title-Capitalizr-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Title-Capitalizr-Info.plist"; sourceTree = SOURCE_ROOT; };
 		962F05422832D17700F41354 /* Title Capitalizr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Title Capitalizr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		962F05452832D17700F41354 /* Title_CapitalizrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title_CapitalizrApp.swift; sourceTree = "<group>"; };
 		962F05472832D17700F41354 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		962F05492832D17900F41354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		962F054C2832D17900F41354 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		962F05522832D17900F41354 /* Title CapitalizrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Title CapitalizrTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		962F05562832D17900F41354 /* Title_CapitalizrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title_CapitalizrTests.swift; sourceTree = "<group>"; };
@@ -48,6 +54,11 @@
 		962F05622832D17A00F41354 /* Title_CapitalizrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title_CapitalizrUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		962F05712832E46200F41354 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		962F05732832E51700F41354 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		964565482835AF7200F32798 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../Downloads/AppIcons/Assets.xcassets; sourceTree = "<group>"; };
+		96ECFB6E2835C25800DA8C0C /* BannerAdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdVC.swift; sourceTree = "<group>"; };
+		96ECFB712835C30200DA8C0C /* BannerAdViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		96ECFB742835CC1C00DA8C0C /* BannerAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdView.swift; sourceTree = "<group>"; };
+		EE3EFEEA2D283A8CE27C5B6A /* Pods_Title_Capitalizr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Title_Capitalizr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02A0A591D66CDF8735B081C /* Pods_Title_Capitalizr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +87,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BD1666CADEA6EB3EEE517D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65690E74D8A672C3FFFE71C6 /* Pods-Title Capitalizr.debug.xcconfig */,
+				477810BADD236B3533A756C6 /* Pods-Title Capitalizr.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9095518FCFBFE50FCBAF55DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE3EFEEA2D283A8CE27C5B6A /* Pods_Title_Capitalizr.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		962F05392832D17700F41354 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +111,8 @@
 				962F05552832D17900F41354 /* Title CapitalizrTests */,
 				962F055F2832D17A00F41354 /* Title CapitalizrUITests */,
 				962F05432832D17700F41354 /* Products */,
+				5BD1666CADEA6EB3EEE517D1 /* Pods */,
+				9095518FCFBFE50FCBAF55DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,10 +129,12 @@
 		962F05442832D17700F41354 /* Title Capitalizr */ = {
 			isa = PBXGroup;
 			children = (
+				964565482835AF7200F32798 /* Assets.xcassets */,
+				96092B982835BC8800D37546 /* Title-Capitalizr-Info.plist */,
 				962F05452832D17700F41354 /* Title_CapitalizrApp.swift */,
-				96C6765D283402C9005E2907 /* Views */,
 				962F05732832E51700F41354 /* Models.swift */,
-				962F05492832D17900F41354 /* Assets.xcassets */,
+				96C6765D283402C9005E2907 /* Views */,
+				96ECFB732835C3AC00DA8C0C /* Extensions */,
 				962F054B2832D17900F41354 /* Preview Content */,
 			);
 			path = "Title Capitalizr";
@@ -137,8 +170,18 @@
 			children = (
 				962F05472832D17700F41354 /* ContentView.swift */,
 				962F05712832E46200F41354 /* PickerView.swift */,
+				96ECFB742835CC1C00DA8C0C /* BannerAdView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		96ECFB732835C3AC00DA8C0C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				96ECFB6E2835C25800DA8C0C /* BannerAdVC.swift */,
+				96ECFB712835C30200DA8C0C /* BannerAdViewControllerRepresentable.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,9 +191,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 962F05662832D17A00F41354 /* Build configuration list for PBXNativeTarget "Title Capitalizr" */;
 			buildPhases = (
+				5E20454008E104ECCD9C9DBB /* [CP] Check Pods Manifest.lock */,
 				962F053E2832D17700F41354 /* Sources */,
 				962F053F2832D17700F41354 /* Frameworks */,
 				962F05402832D17700F41354 /* Resources */,
+				75A26B6A0CB818454DF9F87E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,7 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				962F054D2832D17900F41354 /* Preview Assets.xcassets in Resources */,
-				962F054A2832D17900F41354 /* Assets.xcassets in Resources */,
+				964565492835AF7200F32798 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,15 +311,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5E20454008E104ECCD9C9DBB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Title Capitalizr-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75A26B6A0CB818454DF9F87E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Title Capitalizr/Pods-Title Capitalizr-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Title Capitalizr/Pods-Title Capitalizr-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Title Capitalizr/Pods-Title Capitalizr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		962F053E2832D17700F41354 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96ECFB722835C30200DA8C0C /* BannerAdViewControllerRepresentable.swift in Sources */,
 				962F05482832D17700F41354 /* ContentView.swift in Sources */,
 				962F05462832D17700F41354 /* Title_CapitalizrApp.swift in Sources */,
+				96ECFB752835CC1C00DA8C0C /* BannerAdView.swift in Sources */,
 				962F05722832E46200F41354 /* PickerView.swift in Sources */,
 				962F05742832E51700F41354 /* Models.swift in Sources */,
+				96ECFB6F2835C25800DA8C0C /* BannerAdVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +517,7 @@
 		};
 		962F05672832D17A00F41354 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65690E74D8A672C3FFFE71C6 /* Pods-Title Capitalizr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -436,6 +527,7 @@
 				DEVELOPMENT_TEAM = YNULYC7NRF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Title-Capitalizr-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -456,6 +548,7 @@
 		};
 		962F05682832D17A00F41354 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 477810BADD236B3533A756C6 /* Pods-Title Capitalizr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -465,6 +558,7 @@
 				DEVELOPMENT_TEAM = YNULYC7NRF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Title-Capitalizr-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
