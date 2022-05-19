@@ -9,7 +9,7 @@ An iOS app that automatically **capitalizes** the **title** of your essay. Suppo
 
 **Title Capitalizr** will be released on the **App Store** soon. App currently under **review**.
 
-We care about your **privacy**. Check out our user [**policies**](https://github.com/wonmor/Title-Capitalizr-iOS/blob/main/PRIVACY.md)!
+We care about your **privacy**. Check out our [**user policy**](https://github.com/wonmor/Title-Capitalizr-iOS/blob/main/PRIVACY.md) to find out more about it!
 
 ---
 
