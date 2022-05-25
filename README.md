@@ -5,7 +5,7 @@ An iOS app that automatically **capitalizes** the **title** of your essay. Suppo
 
 ---
 
-## Official Build 1.0
+## Official Build 1.5
 
 ### [Download on the App Store](https://apps.apple.com/us/app/title-capitalizr/id1625011191)
 
