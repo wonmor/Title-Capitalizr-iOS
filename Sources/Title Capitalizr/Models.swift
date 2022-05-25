@@ -45,7 +45,7 @@ final class Capitalizer: ObservableObject {
         
         for exception in target {
             // Apply the exceptions...
-            self.inputLine = self.inputLine.replacingOccurrences(of: exception.capitalizingFirstLetter(), with: exception)
+            self.inputLine = self.inputLine.replacingOccurrences(of: " \(exception.capitalizingFirstLetter()) ", with: " \(exception) ")
         }
         
         // Capitalize the first character despite the selected style and remove all the blankspaces...
