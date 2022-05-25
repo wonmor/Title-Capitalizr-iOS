@@ -3,6 +3,10 @@
 # Title Capitalizr for iOS
 An iOS app that automatically **capitalizes** the **title** of your essay. Supports **MLA**, **APA**, **AP**, and **Chicago** styles.
 
+> "You probably wouldn't capitalize words like "and", "to", and "for" and the app likewise leaves these lowercase."
+
+*— An Anonymous Reddit Comment*
+
 ---
 
 ## Official Build 1.5
