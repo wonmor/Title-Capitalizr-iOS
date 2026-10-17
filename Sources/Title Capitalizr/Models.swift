@@ -10,11 +10,11 @@ import Foundation
 // Dictionaries for storing presets...
 
 let exceptionsForMLA_Chicago = [
-    "in", "of", "to", "and", "but", "for", "nor", "or", "nor", "so", "yet", "the"
+    "in", "of", "to", "and", "but", "for", "nor", "or", "nor", "so", "yet", "the", "a", "an"
 ]
 
 let exceptionsForAPA_AP = [
-    "against", "between", "in", "of", "to", "and", "but", "for", "nor", "or", "nor", "so", "yet", "the"
+    "against", "between", "in", "of", "to", "and", "but", "for", "nor", "or", "nor", "so", "yet", "the", "a", "an"
 ]
 
 // This is where the actual logic for the app starts...
@@ -22,8 +22,28 @@ let exceptionsForAPA_AP = [
 enum DesiredOutput: String, CaseIterable, Identifiable {
     case mla, apa
     var id: Self { self }
+
+    /// Human readable name shown in the UI.
+    var displayName: String {
+        switch self {
+        case .mla: return "MLA and Chicago"
+        case .apa: return "APA and AP"
+        }
+    }
+
+    /// The style-guide description handed to the on-device model.
+    var styleGuideDescription: String {
+        switch self {
+        case .mla:
+            return "MLA / Chicago Manual of Style title case: capitalize the first and last word, every noun, pronoun, verb, adjective, adverb and subordinating conjunction; lowercase articles (a, an, the), coordinating conjunctions (and, but, for, nor, or, so, yet) and prepositions of any length unless they begin or end the title or subtitle."
+        case .apa:
+            return "APA / AP style title case: capitalize the first and last word, every major word (nouns, verbs, adjectives, adverbs, pronouns) and every word of four letters or more; lowercase articles, coordinating conjunctions and prepositions of three letters or fewer unless they begin or end the title or subtitle."
+        }
+    }
 }
 
+/// The original, deterministic rule-based title-case engine. This is always the
+/// default path: it runs instantly, offline and gives the same answer every time.
 final class Capitalizer: ObservableObject {
     init(inputLine: String) {
         self.inputLine = inputLine

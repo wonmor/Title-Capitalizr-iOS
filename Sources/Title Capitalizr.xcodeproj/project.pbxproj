@@ -3,411 +3,350 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		962F05462832D17700F41354 /* Title_CapitalizrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05452832D17700F41354 /* Title_CapitalizrApp.swift */; };
-		962F05482832D17700F41354 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05472832D17700F41354 /* ContentView.swift */; };
-		962F054D2832D17900F41354 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 962F054C2832D17900F41354 /* Preview Assets.xcassets */; };
-		962F05572832D17900F41354 /* Title_CapitalizrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05562832D17900F41354 /* Title_CapitalizrTests.swift */; };
-		962F05612832D17A00F41354 /* Title_CapitalizrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05602832D17A00F41354 /* Title_CapitalizrUITests.swift */; };
-		962F05632832D17A00F41354 /* Title_CapitalizrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05622832D17A00F41354 /* Title_CapitalizrUITestsLaunchTests.swift */; };
-		962F05722832E46200F41354 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05712832E46200F41354 /* PickerView.swift */; };
-		962F05742832E51700F41354 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F05732832E51700F41354 /* Models.swift */; };
-		964565492835AF7200F32798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964565482835AF7200F32798 /* Assets.xcassets */; };
-		96ECFB6F2835C25800DA8C0C /* BannerAdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ECFB6E2835C25800DA8C0C /* BannerAdVC.swift */; };
-		96ECFB722835C30200DA8C0C /* BannerAdViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ECFB712835C30200DA8C0C /* BannerAdViewControllerRepresentable.swift */; };
-		96ECFB752835CC1C00DA8C0C /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ECFB742835CC1C00DA8C0C /* BannerAdView.swift */; };
-		B02A0A591D66CDF8735B081C /* Pods_Title_Capitalizr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE3EFEEA2D283A8CE27C5B6A /* Pods_Title_Capitalizr.framework */; };
+		0614AC284D8390E0A06843A0 /* Title_CapitalizrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FE4E94407897CF8105471D /* Title_CapitalizrApp.swift */; };
+		0C2237A2E91CA21161CB8919 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41305D902D8FB07478F6FA8 /* SettingsView.swift */; };
+		19616CD2C2A547714779FC79 /* IssuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514839818DAE81572890F6D /* IssuesView.swift */; };
+		3357F3C584430978133A3977 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188DC45FFFD60FE6799F968B /* Models.swift */; };
+		415E0F887D8253A7BDDC1095 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143FC5CD146A075D65DF1EC4 /* PickerView.swift */; };
+		41A027C4A358FBD82709F14E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE3FBB9A739C804E52B4324 /* Preview Assets.xcassets */; };
+		53A5851FF9E450132F2ECA10 /* GrammarChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06DFD88BEA3A9E86A4A7418 /* GrammarChecker.swift */; };
+		591F2E8197513C9DC6412378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B58986E3E441C1B6316844C /* Assets.xcassets */; };
+		85642B1CC4B13E9F8E79242D /* SpellChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D93D8C12642880BB5C8E68 /* SpellChecker.swift */; };
+		8D4DD7B98AC5347F993A9F1D /* Title_CapitalizrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C66897AAF4C37847BC9270 /* Title_CapitalizrTests.swift */; };
+		9183515FD330A141A898100F /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A61AADD61D65D3BF1154BB /* Platform.swift */; };
+		BED6128C2878FBBE26F258B0 /* SmartCapitalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54766E505C7663BDD18F666B /* SmartCapitalizer.swift */; };
+		C7A7E1A9EF3ED885A59FB73F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2503075B3E87CD22496871F /* ContentView.swift */; };
+		FF296D76C556911A3093E238 /* GrammarIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D9A4156453C379AC4D9EA4 /* GrammarIssue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		962F05532832D17900F41354 /* PBXContainerItemProxy */ = {
+		88ADBB3A7DE17B0E6AE9C53C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 962F053A2832D17700F41354 /* Project object */;
+			containerPortal = 3A4DA2FC686A77B9B8068C95 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 962F05412832D17700F41354;
-			remoteInfo = "Title Capitalizr";
-		};
-		962F055D2832D17A00F41354 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 962F053A2832D17700F41354 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 962F05412832D17700F41354;
+			remoteGlobalIDString = 33457571BE31395E979D1403;
 			remoteInfo = "Title Capitalizr";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		477810BADD236B3533A756C6 /* Pods-Title Capitalizr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Title Capitalizr.release.xcconfig"; path = "Target Support Files/Pods-Title Capitalizr/Pods-Title Capitalizr.release.xcconfig"; sourceTree = "<group>"; };
-		65690E74D8A672C3FFFE71C6 /* Pods-Title Capitalizr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Title Capitalizr.debug.xcconfig"; path = "Target Support Files/Pods-Title Capitalizr/Pods-Title Capitalizr.debug.xcconfig"; sourceTree = "<group>"; };
-		96092B982835BC8800D37546 /* Title-Capitalizr-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Title-Capitalizr-Info.plist"; sourceTree = SOURCE_ROOT; };
-		962F05422832D17700F41354 /* Title Capitalizr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Title Capitalizr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		962F05452832D17700F41354 /* Title_CapitalizrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title_CapitalizrApp.swift; sourceTree = "<group>"; };
-		962F05472832D17700F41354 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		962F054C2832D17900F41354 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		962F05522832D17900F41354 /* Title CapitalizrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Title CapitalizrTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		962F05562832D17900F41354 /* Title_CapitalizrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title_CapitalizrTests.swift; sourceTree = "<group>"; };
-		962F055C2832D17A00F41354 /* Title CapitalizrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Title CapitalizrUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		962F05602832D17A00F41354 /* Title_CapitalizrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title_CapitalizrUITests.swift; sourceTree = "<group>"; };
-		962F05622832D17A00F41354 /* Title_CapitalizrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title_CapitalizrUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		962F05712832E46200F41354 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
-		962F05732832E51700F41354 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		964565482835AF7200F32798 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../Downloads/AppIcons/Assets.xcassets; sourceTree = "<group>"; };
-		96ECFB6E2835C25800DA8C0C /* BannerAdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdVC.swift; sourceTree = "<group>"; };
-		96ECFB712835C30200DA8C0C /* BannerAdViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdViewControllerRepresentable.swift; sourceTree = "<group>"; };
-		96ECFB742835CC1C00DA8C0C /* BannerAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdView.swift; sourceTree = "<group>"; };
-		EE3EFEEA2D283A8CE27C5B6A /* Pods_Title_Capitalizr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Title_Capitalizr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		143FC5CD146A075D65DF1EC4 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		188DC45FFFD60FE6799F968B /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1B58986E3E441C1B6316844C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		24D9A4156453C379AC4D9EA4 /* GrammarIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarIssue.swift; sourceTree = "<group>"; };
+		2514839818DAE81572890F6D /* IssuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesView.swift; sourceTree = "<group>"; };
+		54766E505C7663BDD18F666B /* SmartCapitalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCapitalizer.swift; sourceTree = "<group>"; };
+		70C66897AAF4C37847BC9270 /* Title_CapitalizrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title_CapitalizrTests.swift; sourceTree = "<group>"; };
+		76F6106808C270EE1761604F /* Title CapitalizrTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = "Title CapitalizrTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FE3FBB9A739C804E52B4324 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A1FE4E94407897CF8105471D /* Title_CapitalizrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title_CapitalizrApp.swift; sourceTree = "<group>"; };
+		A4D93D8C12642880BB5C8E68 /* SpellChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellChecker.swift; sourceTree = "<group>"; };
+		BBABD6A8D3B311B9E85B7789 /* Title Capitalizr.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Title Capitalizr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3A61AADD61D65D3BF1154BB /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		C41305D902D8FB07478F6FA8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F06DFD88BEA3A9E86A4A7418 /* GrammarChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarChecker.swift; sourceTree = "<group>"; };
+		F2503075B3E87CD22496871F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		962F053F2832D17700F41354 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B02A0A591D66CDF8735B081C /* Pods_Title_Capitalizr.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		962F054F2832D17900F41354 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		962F05592832D17A00F41354 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
-		5BD1666CADEA6EB3EEE517D1 /* Pods */ = {
+		0CC93197E19B056FCD194A00 /* Title Capitalizr */ = {
 			isa = PBXGroup;
 			children = (
-				65690E74D8A672C3FFFE71C6 /* Pods-Title Capitalizr.debug.xcconfig */,
-				477810BADD236B3533A756C6 /* Pods-Title Capitalizr.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		9095518FCFBFE50FCBAF55DA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EE3EFEEA2D283A8CE27C5B6A /* Pods_Title_Capitalizr.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		962F05392832D17700F41354 = {
-			isa = PBXGroup;
-			children = (
-				962F05442832D17700F41354 /* Title Capitalizr */,
-				962F05552832D17900F41354 /* Title CapitalizrTests */,
-				962F055F2832D17A00F41354 /* Title CapitalizrUITests */,
-				962F05432832D17700F41354 /* Products */,
-				5BD1666CADEA6EB3EEE517D1 /* Pods */,
-				9095518FCFBFE50FCBAF55DA /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		962F05432832D17700F41354 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				962F05422832D17700F41354 /* Title Capitalizr.app */,
-				962F05522832D17900F41354 /* Title CapitalizrTests.xctest */,
-				962F055C2832D17A00F41354 /* Title CapitalizrUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		962F05442832D17700F41354 /* Title Capitalizr */ = {
-			isa = PBXGroup;
-			children = (
-				964565482835AF7200F32798 /* Assets.xcassets */,
-				96092B982835BC8800D37546 /* Title-Capitalizr-Info.plist */,
-				962F05452832D17700F41354 /* Title_CapitalizrApp.swift */,
-				962F05732832E51700F41354 /* Models.swift */,
-				96C6765D283402C9005E2907 /* Views */,
-				96ECFB732835C3AC00DA8C0C /* Extensions */,
-				962F054B2832D17900F41354 /* Preview Content */,
+				1B58986E3E441C1B6316844C /* Assets.xcassets */,
+				188DC45FFFD60FE6799F968B /* Models.swift */,
+				A1FE4E94407897CF8105471D /* Title_CapitalizrApp.swift */,
+				A9C51DB86F2CA7ECCE61960F /* AI */,
+				998EFCA2E4858720CF113321 /* Grammar */,
+				CC929FC5EBBAA44032226320 /* Preview Content */,
+				81CEDB4E8819729AC5B0C643 /* Support */,
+				C442FE4645689A2968229C09 /* Views */,
 			);
 			path = "Title Capitalizr";
 			sourceTree = "<group>";
 		};
-		962F054B2832D17900F41354 /* Preview Content */ = {
+		2F01858BA681859EB9F19A22 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				962F054C2832D17900F41354 /* Preview Assets.xcassets */,
+				BBABD6A8D3B311B9E85B7789 /* Title Capitalizr.app */,
+				76F6106808C270EE1761604F /* Title CapitalizrTests.xctest */,
 			);
-			path = "Preview Content";
+			name = Products;
 			sourceTree = "<group>";
 		};
-		962F05552832D17900F41354 /* Title CapitalizrTests */ = {
+		5172E06B40E1E4E054CC04BF /* Title CapitalizrTests */ = {
 			isa = PBXGroup;
 			children = (
-				962F05562832D17900F41354 /* Title_CapitalizrTests.swift */,
+				70C66897AAF4C37847BC9270 /* Title_CapitalizrTests.swift */,
 			);
 			path = "Title CapitalizrTests";
 			sourceTree = "<group>";
 		};
-		962F055F2832D17A00F41354 /* Title CapitalizrUITests */ = {
+		81CEDB4E8819729AC5B0C643 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				962F05602832D17A00F41354 /* Title_CapitalizrUITests.swift */,
-				962F05622832D17A00F41354 /* Title_CapitalizrUITestsLaunchTests.swift */,
+				C3A61AADD61D65D3BF1154BB /* Platform.swift */,
 			);
-			path = "Title CapitalizrUITests";
+			path = Support;
 			sourceTree = "<group>";
 		};
-		96C6765D283402C9005E2907 /* Views */ = {
+		998EFCA2E4858720CF113321 /* Grammar */ = {
 			isa = PBXGroup;
 			children = (
-				962F05472832D17700F41354 /* ContentView.swift */,
-				962F05712832E46200F41354 /* PickerView.swift */,
-				96ECFB742835CC1C00DA8C0C /* BannerAdView.swift */,
+				F06DFD88BEA3A9E86A4A7418 /* GrammarChecker.swift */,
+				24D9A4156453C379AC4D9EA4 /* GrammarIssue.swift */,
+				A4D93D8C12642880BB5C8E68 /* SpellChecker.swift */,
+			);
+			path = Grammar;
+			sourceTree = "<group>";
+		};
+		A9C51DB86F2CA7ECCE61960F /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				54766E505C7663BDD18F666B /* SmartCapitalizer.swift */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
+		B6B15857C816C6B40CF28DF3 = {
+			isa = PBXGroup;
+			children = (
+				0CC93197E19B056FCD194A00 /* Title Capitalizr */,
+				5172E06B40E1E4E054CC04BF /* Title CapitalizrTests */,
+				2F01858BA681859EB9F19A22 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C442FE4645689A2968229C09 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F2503075B3E87CD22496871F /* ContentView.swift */,
+				2514839818DAE81572890F6D /* IssuesView.swift */,
+				143FC5CD146A075D65DF1EC4 /* PickerView.swift */,
+				C41305D902D8FB07478F6FA8 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		96ECFB732835C3AC00DA8C0C /* Extensions */ = {
+		CC929FC5EBBAA44032226320 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				96ECFB6E2835C25800DA8C0C /* BannerAdVC.swift */,
-				96ECFB712835C30200DA8C0C /* BannerAdViewControllerRepresentable.swift */,
+				9FE3FBB9A739C804E52B4324 /* Preview Assets.xcassets */,
 			);
-			path = Extensions;
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		962F05412832D17700F41354 /* Title Capitalizr */ = {
+		244C95388DCEF89F03664D0E /* Title CapitalizrTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 962F05662832D17A00F41354 /* Build configuration list for PBXNativeTarget "Title Capitalizr" */;
+			buildConfigurationList = 60EDBBED89AD726AF9FF6C95 /* Build configuration list for PBXNativeTarget "Title CapitalizrTests" */;
 			buildPhases = (
-				5E20454008E104ECCD9C9DBB /* [CP] Check Pods Manifest.lock */,
-				962F053E2832D17700F41354 /* Sources */,
-				962F053F2832D17700F41354 /* Frameworks */,
-				962F05402832D17700F41354 /* Resources */,
-				75A26B6A0CB818454DF9F87E /* [CP] Embed Pods Frameworks */,
+				F55086B52E0943097B847853 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				032046690488284D4E334172 /* PBXTargetDependency */,
+			);
+			name = "Title CapitalizrTests";
+			packageProductDependencies = (
+			);
+			productName = "Title CapitalizrTests";
+			productReference = 76F6106808C270EE1761604F /* Title CapitalizrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		33457571BE31395E979D1403 /* Title Capitalizr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DDC6F62F9D98A59C5FB9F69 /* Build configuration list for PBXNativeTarget "Title Capitalizr" */;
+			buildPhases = (
+				0A6678A41C1A69DEBAF29E6C /* Sources */,
+				B0E4A3B7C8349480F8E5A9BF /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Title Capitalizr";
+			packageProductDependencies = (
+			);
 			productName = "Title Capitalizr";
-			productReference = 962F05422832D17700F41354 /* Title Capitalizr.app */;
+			productReference = BBABD6A8D3B311B9E85B7789 /* Title Capitalizr.app */;
 			productType = "com.apple.product-type.application";
-		};
-		962F05512832D17900F41354 /* Title CapitalizrTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 962F05692832D17A00F41354 /* Build configuration list for PBXNativeTarget "Title CapitalizrTests" */;
-			buildPhases = (
-				962F054E2832D17900F41354 /* Sources */,
-				962F054F2832D17900F41354 /* Frameworks */,
-				962F05502832D17900F41354 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				962F05542832D17900F41354 /* PBXTargetDependency */,
-			);
-			name = "Title CapitalizrTests";
-			productName = "Title CapitalizrTests";
-			productReference = 962F05522832D17900F41354 /* Title CapitalizrTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		962F055B2832D17A00F41354 /* Title CapitalizrUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 962F056C2832D17A00F41354 /* Build configuration list for PBXNativeTarget "Title CapitalizrUITests" */;
-			buildPhases = (
-				962F05582832D17A00F41354 /* Sources */,
-				962F05592832D17A00F41354 /* Frameworks */,
-				962F055A2832D17A00F41354 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				962F055E2832D17A00F41354 /* PBXTargetDependency */,
-			);
-			name = "Title CapitalizrUITests";
-			productName = "Title CapitalizrUITests";
-			productReference = 962F055C2832D17A00F41354 /* Title CapitalizrUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		962F053A2832D17700F41354 /* Project object */ = {
+		3A4DA2FC686A77B9B8068C95 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
-					962F05412832D17700F41354 = {
-						CreatedOnToolsVersion = 13.3.1;
+					244C95388DCEF89F03664D0E = {
+						DevelopmentTeam = Z64KRUX3W3;
+						ProvisioningStyle = Automatic;
 					};
-					962F05512832D17900F41354 = {
-						CreatedOnToolsVersion = 13.3.1;
-						TestTargetID = 962F05412832D17700F41354;
-					};
-					962F055B2832D17A00F41354 = {
-						CreatedOnToolsVersion = 13.3.1;
-						TestTargetID = 962F05412832D17700F41354;
+					33457571BE31395E979D1403 = {
+						DevelopmentTeam = Z64KRUX3W3;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 962F053D2832D17700F41354 /* Build configuration list for PBXProject "Title Capitalizr" */;
-			compatibilityVersion = "Xcode 13.0";
+			buildConfigurationList = 1AD53587381E37AC8858E960 /* Build configuration list for PBXProject "Title Capitalizr" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
 			);
-			mainGroup = 962F05392832D17700F41354;
-			productRefGroup = 962F05432832D17700F41354 /* Products */;
+			mainGroup = B6B15857C816C6B40CF28DF3;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2F01858BA681859EB9F19A22 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				962F05412832D17700F41354 /* Title Capitalizr */,
-				962F05512832D17900F41354 /* Title CapitalizrTests */,
-				962F055B2832D17A00F41354 /* Title CapitalizrUITests */,
+				33457571BE31395E979D1403 /* Title Capitalizr */,
+				244C95388DCEF89F03664D0E /* Title CapitalizrTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		962F05402832D17700F41354 /* Resources */ = {
+		B0E4A3B7C8349480F8E5A9BF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				962F054D2832D17900F41354 /* Preview Assets.xcassets in Resources */,
-				964565492835AF7200F32798 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		962F05502832D17900F41354 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		962F055A2832D17A00F41354 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				591F2E8197513C9DC6412378 /* Assets.xcassets in Resources */,
+				41A027C4A358FBD82709F14E /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5E20454008E104ECCD9C9DBB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Title Capitalizr-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		75A26B6A0CB818454DF9F87E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Title Capitalizr/Pods-Title Capitalizr-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Title Capitalizr/Pods-Title Capitalizr-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Title Capitalizr/Pods-Title Capitalizr-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		962F053E2832D17700F41354 /* Sources */ = {
+		0A6678A41C1A69DEBAF29E6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96ECFB722835C30200DA8C0C /* BannerAdViewControllerRepresentable.swift in Sources */,
-				962F05482832D17700F41354 /* ContentView.swift in Sources */,
-				962F05462832D17700F41354 /* Title_CapitalizrApp.swift in Sources */,
-				96ECFB752835CC1C00DA8C0C /* BannerAdView.swift in Sources */,
-				962F05722832E46200F41354 /* PickerView.swift in Sources */,
-				962F05742832E51700F41354 /* Models.swift in Sources */,
-				96ECFB6F2835C25800DA8C0C /* BannerAdVC.swift in Sources */,
+				C7A7E1A9EF3ED885A59FB73F /* ContentView.swift in Sources */,
+				53A5851FF9E450132F2ECA10 /* GrammarChecker.swift in Sources */,
+				FF296D76C556911A3093E238 /* GrammarIssue.swift in Sources */,
+				19616CD2C2A547714779FC79 /* IssuesView.swift in Sources */,
+				3357F3C584430978133A3977 /* Models.swift in Sources */,
+				415E0F887D8253A7BDDC1095 /* PickerView.swift in Sources */,
+				9183515FD330A141A898100F /* Platform.swift in Sources */,
+				0C2237A2E91CA21161CB8919 /* SettingsView.swift in Sources */,
+				BED6128C2878FBBE26F258B0 /* SmartCapitalizer.swift in Sources */,
+				85642B1CC4B13E9F8E79242D /* SpellChecker.swift in Sources */,
+				0614AC284D8390E0A06843A0 /* Title_CapitalizrApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		962F054E2832D17900F41354 /* Sources */ = {
+		F55086B52E0943097B847853 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				962F05572832D17900F41354 /* Title_CapitalizrTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		962F05582832D17A00F41354 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				962F05632832D17A00F41354 /* Title_CapitalizrUITestsLaunchTests.swift in Sources */,
-				962F05612832D17A00F41354 /* Title_CapitalizrUITests.swift in Sources */,
+				8D4DD7B98AC5347F993A9F1D /* Title_CapitalizrTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		962F05542832D17900F41354 /* PBXTargetDependency */ = {
+		032046690488284D4E334172 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 962F05412832D17700F41354 /* Title Capitalizr */;
-			targetProxy = 962F05532832D17900F41354 /* PBXContainerItemProxy */;
-		};
-		962F055E2832D17A00F41354 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 962F05412832D17700F41354 /* Title Capitalizr */;
-			targetProxy = 962F055D2832D17A00F41354 /* PBXContainerItemProxy */;
+			target = 33457571BE31395E979D1403 /* Title Capitalizr */;
+			targetProxy = 88ADBB3A7DE17B0E6AE9C53C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		962F05642832D17A00F41354 /* Debug */ = {
+		297209DF76FA61AF1311491D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Title Capitalizr/Title Capitalizr.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_ASSET_PATHS = "\"Title Capitalizr/Preview Content\"";
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Title Capitalizr/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-weak_framework FoundationModels";
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.titlecapitalizr;
+				PRODUCT_NAME = "Title Capitalizr";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2C811FA18202D65512054E34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.titlecapitalizr.tests;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Title Capitalizr.app/Title Capitalizr";
+				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/Title Capitalizr.app/Contents/MacOS/Title Capitalizr";
+			};
+			name = Debug;
+		};
+		2FE4FAEC02094B28BE7FC21A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.titlecapitalizr.tests;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Title Capitalizr.app/Title Capitalizr";
+				"TEST_HOST[sdk=macosx*]" = "$(BUILT_PRODUCTS_DIR)/Title Capitalizr.app/Contents/MacOS/Title Capitalizr";
+			};
+			name = Release;
+		};
+		7134C6D24948B8605B788DDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -433,8 +372,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = Z64KRUX3W3;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -442,8 +384,8 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
+					"DEBUG=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -451,23 +393,56 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		962F05652832D17A00F41354 /* Release */ = {
+		9087B19926A40DECF03F7AB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Title Capitalizr/Title Capitalizr.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_ASSET_PATHS = "\"Title Capitalizr/Preview Content\"";
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Title Capitalizr/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-weak_framework FoundationModels";
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.titlecapitalizr;
+				PRODUCT_NAME = "Title Capitalizr";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		B91364543C1F152FD0FDB04C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -493,8 +468,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = Z64KRUX3W3;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -505,194 +483,50 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		962F05672832D17A00F41354 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65690E74D8A672C3FFFE71C6 /* Pods-Title Capitalizr.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Title Capitalizr/Preview Content\"";
-				DEVELOPMENT_TEAM = Z64KRUX3W3;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Title-Capitalizr-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.titlecapitalizr;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		962F05682832D17A00F41354 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 477810BADD236B3533A756C6 /* Pods-Title Capitalizr.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Title Capitalizr/Preview Content\"";
-				DEVELOPMENT_TEAM = Z64KRUX3W3;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Title-Capitalizr-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.titlecapitalizr;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		962F056A2832D17A00F41354 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YNULYC7NRF;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "John-Seong.Title-CapitalizrTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Title Capitalizr.app/Title Capitalizr";
-			};
-			name = Debug;
-		};
-		962F056B2832D17A00F41354 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YNULYC7NRF;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "John-Seong.Title-CapitalizrTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Title Capitalizr.app/Title Capitalizr";
-			};
-			name = Release;
-		};
-		962F056D2832D17A00F41354 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YNULYC7NRF;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "John-Seong.Title-CapitalizrUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Title Capitalizr";
-			};
-			name = Debug;
-		};
-		962F056E2832D17A00F41354 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YNULYC7NRF;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "John-Seong.Title-CapitalizrUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Title Capitalizr";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		962F053D2832D17700F41354 /* Build configuration list for PBXProject "Title Capitalizr" */ = {
+		1AD53587381E37AC8858E960 /* Build configuration list for PBXProject "Title Capitalizr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				962F05642832D17A00F41354 /* Debug */,
-				962F05652832D17A00F41354 /* Release */,
+				7134C6D24948B8605B788DDC /* Debug */,
+				B91364543C1F152FD0FDB04C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		962F05662832D17A00F41354 /* Build configuration list for PBXNativeTarget "Title Capitalizr" */ = {
+		60EDBBED89AD726AF9FF6C95 /* Build configuration list for PBXNativeTarget "Title CapitalizrTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				962F05672832D17A00F41354 /* Debug */,
-				962F05682832D17A00F41354 /* Release */,
+				2C811FA18202D65512054E34 /* Debug */,
+				2FE4FAEC02094B28BE7FC21A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		962F05692832D17A00F41354 /* Build configuration list for PBXNativeTarget "Title CapitalizrTests" */ = {
+		6DDC6F62F9D98A59C5FB9F69 /* Build configuration list for PBXNativeTarget "Title Capitalizr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				962F056A2832D17A00F41354 /* Debug */,
-				962F056B2832D17A00F41354 /* Release */,
+				297209DF76FA61AF1311491D /* Debug */,
+				9087B19926A40DECF03F7AB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		962F056C2832D17A00F41354 /* Build configuration list for PBXNativeTarget "Title CapitalizrUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				962F056D2832D17A00F41354 /* Debug */,
-				962F056E2832D17A00F41354 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 962F053A2832D17700F41354 /* Project object */;
+	rootObject = 3A4DA2FC686A77B9B8068C95 /* Project object */;
 }

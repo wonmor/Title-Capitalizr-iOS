@@ -1,0 +1,31 @@
+default_platform(:ios)
+
+APP_ID   = "com.johnseong.titlecapitalizr"
+USERNAME = "wonmor@yahoo.com"
+TEAM_ID  = "Z64KRUX3W3"
+
+def connect_login
+  Spaceship::ConnectAPI.login(USERNAME, nil, use_portal: false, use_tunes: true, tunes_team_id: TEAM_ID)
+end
+
+platform :ios do
+  desc "Show build processing and version state for every platform"
+  lane :status do
+    connect_login
+    app = Spaceship::ConnectAPI::App.find(APP_ID)
+    UI.user_error!("App #{APP_ID} not found on App Store Connect") unless app
+    rc = Spaceship::ConnectAPI.client.tunes_request_client
+    builds = rc.get("v1/builds", { "filter[app]" => app.id, "sort" => "-uploadedDate", "limit" => 10,
+                                   "include" => "preReleaseVersion" }).body
+    pre = {}
+    (builds["included"] || []).each { |i| pre[i["id"]] = i["attributes"] if i["type"] == "preReleaseVersions" }
+    builds["data"].each do |b|
+      a = b["attributes"]
+      p = pre[b.dig("relationships", "preReleaseVersion", "data", "id")] || {}
+      UI.message("build #{a['version']} for #{p['version']} (#{p['platform']}): #{a['processingState']} uploaded #{a['uploadedDate']}")
+    end
+    app.get_app_store_versions.each do |v|
+      UI.message("version #{v.version_string} platform=#{v.platform} state=#{v.app_store_state} id=#{v.id}")
+    end
+  end
+end

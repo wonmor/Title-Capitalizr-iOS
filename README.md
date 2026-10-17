@@ -1,7 +1,7 @@
 <img width="150" alt="Icon-iOS" src="https://user-images.githubusercontent.com/35755386/169313051-fc0338da-f3bd-4da1-b752-99fd8fb96666.png">
 
-# Title Capitalizr for iOS
-An iOS app that automatically **capitalizes** the **title** of your essay. Supports **MLA**, **APA**, **AP**, and **Chicago** styles.
+# Title Capitalizr for iOS and macOS
+An app that automatically **capitalizes** the **title** of your essay. Supports **MLA**, **APA**, **AP**, and **Chicago** styles.
 
 > "You probably wouldn't capitalize words like "and", "to", and "for" and the app likewise leaves these lowercase."
 
@@ -9,11 +9,27 @@ An iOS app that automatically **capitalizes** the **title** of your essay. Suppo
 
 ---
 
-## Official Build 1.5
+## Official Build 1.6
 
 ### [Download on the App Store](https://apps.apple.com/us/app/title-capitalizr/id1625011191)
 
 We care about your **privacy**. Check out our [**user policy**](https://github.com/wonmor/Title-Capitalizr-iOS/blob/main/PRIVACY.md) to find out more about it!
+
+---
+
+## What's new in 1.6
+
+- **Smart Capitalize** (Apple Intelligence): on devices running iOS 26 / macOS 26 with Apple Intelligence turned on, the on-device Foundation Models framework applies your chosen style guide with proper handling of proper nouns, acronyms, hyphenated words and subtitles. The classic rule-based capitalizer stays the instant default, and the app simply shows "Apple Intelligence not available" everywhere else.
+- **Suggest alternative titles**: three on-device rewrites of your title in the selected style.
+- **Spelling and grammar checks**: the system spell checker (`UITextChecker` on iOS, `NSSpellChecker` on macOS) plus rule-based grammar checks for a/an, doubled words, missing apostrophes, first-word capitalization and subject-verb agreement. Issues are listed with one-tap fixes and a **Fix all** button; nothing changes until you accept it.
+- **Settings** to switch each feature on or off, and a native **macOS** app.
+- Everything runs on your device. The app makes no network requests and needs no API keys.
+
+---
+
+## Building
+
+The project is generated with [XcodeGen](https://github.com/yonaskolb/XcodeGen) from `Sources/project.yml` (the generated `Title Capitalizr.xcodeproj` is checked in too). Open `Sources/Title Capitalizr.xcodeproj` with Xcode 26 or later and run the `Title Capitalizr` scheme on an iPhone, iPad or your Mac. Unit tests for the grammar rules and the Apple Intelligence fallback live in `Sources/Title CapitalizrTests`.
 
 ---
 

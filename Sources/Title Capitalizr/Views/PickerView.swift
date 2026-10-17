@@ -10,33 +10,40 @@ import SwiftUI
 struct PickerView: View {
     @Binding var selectedOutput: DesiredOutput
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.dismiss) private var dismiss
 
-        var btnBack : some View { Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-            }) {
-                HStack {
-                Image(systemName: "chevron.backward") // set image here
+    var btnBack: some View {
+        Button(action: { dismiss() }) {
+            HStack {
+                Image(systemName: "chevron.backward")
                     .aspectRatio(contentMode: .fit)
-                    Text("Back")
-                }
+                Text("Back")
             }
         }
+    }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 Picker("Style", selection: $selectedOutput) {
-                    Text("MLA and Chicago").tag(DesiredOutput.mla)
-                    Text("APA and AP").tag(DesiredOutput.apa)
+                    ForEach(DesiredOutput.allCases) { style in
+                        Text(style.displayName).tag(style)
+                    }
                 }
+                #if os(macOS)
+                .pickerStyle(.inline)
+                #endif
             }
-            .navigationBarTitle("Customize")
-            .navigationBarItems(leading: btnBack)
+            .navigationTitle("Customize")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) { btnBack }
+            }
         }
+        #if os(macOS)
+        .frame(minWidth: 360, minHeight: 260)
+        #endif
         
         Text("Developed and Designed by John Seong")
-        
-        SwiftUIBannerAd(adPosition: .none, adUnitId: bannerUnitID)
+            .padding(.bottom)
     }
 }
