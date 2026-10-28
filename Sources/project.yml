@@ -13,7 +13,7 @@ settings:
     DEVELOPMENT_TEAM: Z64KRUX3W3
     CODE_SIGN_STYLE: Automatic
     MARKETING_VERSION: "1.6"
-    CURRENT_PROJECT_VERSION: 2
+    CURRENT_PROJECT_VERSION: 3
 targets:
   Title Capitalizr:
     type: application

@@ -111,14 +111,21 @@ struct ContentView: View {
     }
 
     private func titleBar() -> some View {
-        VStack(spacing: -20) {
+        // iOS draws the style button as plain text, so the stack can be tight. The macOS
+        // button has a bezel, which overlapped the heading at -20, so it gets normal spacing.
+        #if os(macOS)
+        let spacing: CGFloat = 0
+        #else
+        let spacing: CGFloat = -20
+        #endif
+        return VStack(spacing: spacing) {
             Image("AppIconPreview")
                 .resizable()
                 .frame(width: 60, height: 60)
                 .cornerRadius(10)
                 .padding()
 
-            Text("Title Capitalzr")
+            Text("Title Capitalizr")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding()
@@ -133,6 +140,9 @@ struct ContentView: View {
                         .padding()
                 }
             }
+            #if os(macOS)
+            .buttonStyle(.borderless)
+            #endif
             .sheet(isPresented: $showingSheet) {
                 PickerView(selectedOutput: $selectedOutput)
             }
@@ -174,7 +184,7 @@ struct ContentView: View {
                 .multilineTextAlignment(.center)
 
             if smartOutput != nil {
-                Label("Apple Intelligence · \(desiredOutputDict[selectedOutput]!)", systemImage: "sparkles")
+                Label("Apple Intelligence | \(desiredOutputDict[selectedOutput]!)", systemImage: "sparkles")
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
