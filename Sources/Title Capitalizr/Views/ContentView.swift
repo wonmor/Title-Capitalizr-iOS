@@ -21,6 +21,7 @@ struct ContentView: View {
     }
 
     var body: some View {
+        ScrollViewReader { proxy in
         ScrollView {
             VStack(alignment: .leading, spacing: Bauhaus.Space.l) {
                 masthead
@@ -36,6 +37,16 @@ struct ContentView: View {
             .padding(.bottom, Bauhaus.Space.xl)
             .frame(maxWidth: 720)
             .frame(maxWidth: .infinity)
+        }
+        .onAppear {
+            // Screenshot runs: TC_DEMO_SCROLL=checks|preview|export scrolls to that section.
+            if let anchor = ProcessInfo.processInfo.environment["TC_DEMO_SCROLL"] {
+                Task { @MainActor in
+                    try? await Task.sleep(nanoseconds: 1_200_000_000)
+                    proxy.scrollTo(anchor, anchor: .top)
+                }
+            }
+        }
         }
         #if os(iOS)
         .scrollDismissesKeyboard(.interactively)

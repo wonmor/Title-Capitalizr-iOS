@@ -288,13 +288,14 @@ enum EssayFormatter {
         let text = r.plainText
         if style == .mla9 {
             let ns = text as NSString
-            if let re = try? NSRegularExpression(pattern: #"https?://(www\.)?"#) {
+            if let re = try? NSRegularExpression(pattern: #"https?://(?:www\.)?([^\s]+)"#) {
                 let matches = re.matches(in: text, range: NSRange(location: 0, length: ns.length))
-                if !matches.isEmpty {
+                if let first = matches.first {
                     let id = "ref-url-\(index)"
-                    issues.append(FormatIssue(id: id, kind: .fix, message: "MLA 9 drops \"https://\" from URLs in Works Cited", original: ns.substring(with: matches[0].range), replacement: ""))
+                    issues.append(FormatIssue(id: id, kind: .fix, message: "MLA 9 drops \"https://\" from URLs in Works Cited",
+                                              original: ns.substring(with: first.range), replacement: ns.substring(with: first.range(at: 1))))
                     if !disabled.contains(id) {
-                        for m in matches.reversed() { r = replace(in: r, range: m.range, with: "") }
+                        for m in matches.reversed() { r = replace(in: r, range: m.range, with: ns.substring(with: m.range(at: 1))) }
                     }
                 }
             }

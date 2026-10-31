@@ -38,7 +38,7 @@ targets:
           UISceneConfigurations: {}
         UIApplicationSupportsIndirectInputEvents: true
         UILaunchScreen: {}
-        LSSupportsOpeningDocumentsInPlace: false
+        LSSupportsOpeningDocumentsInPlace: true
         LSApplicationQueriesSchemes: [googledocs]
         CFBundleDocumentTypes:
           - CFBundleTypeName: Essay

@@ -345,6 +345,24 @@ final class EssayFormatterTests: XCTestCase {
         XCTAssertEqual(ExportNaming.fileName(lastName: "Núñez", title: "Río: ¿Qué?", style: .chicagoNotes, ext: "rtf"), "Nunez_Rio-Que_Chicago.rtf")
     }
 
+    /// Writes every export of the sample for checking in Word, Pages and textutil.
+    /// Runs only when TC_EXPORT=1 (TEST_RUNNER_TC_EXPORT=1 for xcodebuild); files go to the
+    /// test host's temporary folder (inside the app container on macOS), printed to the log.
+    func testWriteSampleExportsForExternalValidation() throws {
+        guard ProcessInfo.processInfo.environment["TC_EXPORT"] == "1" else { throw XCTSkip("TC_EXPORT not set") }
+        let dir = FileManager.default.temporaryDirectory.appendingPathComponent("TCExports").path
+        try FileManager.default.createDirectory(atPath: dir, withIntermediateDirectories: true)
+        print("TC_EXPORT_PATH=\(dir)")
+        let (_, s) = try analyzedSample()
+        for style in EssayStyle.allCases {
+            let essay = format(s, style: style).essay
+            for f in ExportFormat.allCases {
+                let url = URL(fileURLWithPath: dir).appendingPathComponent(ExportNaming.fileName(for: essay, format: f))
+                try f.data(for: essay).write(to: url)
+            }
+        }
+    }
+
     // MARK: Google Docs
 
     func testGoogleDocsLinkParsing() {

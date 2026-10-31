@@ -23,7 +23,7 @@ enum GoogleDocsError: LocalizedError, Equatable {
         case .notShared:
             return "This Google Doc isn't shared publicly. In Google Docs choose Share > General access > Anyone with the link, or choose File > Download > Microsoft Word (.docx) and drop the file here."
         case .notFound:
-            return "Google Docs couldn't find this document. Check the link."
+            return "Google Docs couldn't open this document. Check the link, and make sure it's shared as \"Anyone with the link\". Otherwise choose File > Download > Microsoft Word (.docx) in Google Docs and drop the file here."
         case .network(let message):
             return "Couldn't download the Google Doc: \(message)"
         }

@@ -138,7 +138,7 @@ final class Title_CapitalizrTests: XCTestCase {
     func testSpellCheckerFlagsMisspelling() {
         let issues = SpellChecker().check("The Lrod of the Rings")
         XCTAssertEqual(issues.count, 1)
-        XCTAssertEqual(issues[0].original, "Lrod")
+        XCTAssertEqual(issues.first?.original, "Lrod")
         XCTAssertTrue(SpellChecker().check("The Lord of the Rings").isEmpty)
     }
 }

@@ -169,7 +169,7 @@ enum PDFEssayRenderer {
         for r in p.runs {
             if let id = r.footnoteID {
                 out.append(NSAttributedString(string: "\(id)", attributes: [fontKey: font(bold: false, italic: false, size: 8),
-                                                                           kCTSuperscriptAttributeName as NSAttributedString.Key: 1]))
+                                                                           kCTBaselineOffsetAttributeName as NSAttributedString.Key: 4.5]))
                 continue
             }
             var attrs: [NSAttributedString.Key: Any] = [fontKey: font(bold: r.bold, italic: r.italic)]

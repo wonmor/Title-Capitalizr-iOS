@@ -31,9 +31,9 @@ struct EssayView: View {
                 StylePicker(style: $workspace.style)
                 HeadingEditor(workspace: workspace, aiAvailable: aiFeaturesEnabled && smart.availability.isAvailable,
                               askAI: { workspace.askAppleIntelligence(availability: smart.availability) })
-                ChecksList(workspace: workspace)
-                previewSection
-                exportSection
+                ChecksList(workspace: workspace).id("checks")
+                previewSection.id("preview")
+                exportSection.id("export")
             } else {
                 importSection
             }
@@ -45,6 +45,9 @@ struct EssayView: View {
         .sheet(isPresented: $showingPaywall) {
             PaywallView(store: store)
                 .bauhausSheet()
+        }
+        .onAppear {
+            if ProcessInfo.processInfo.environment["TC_DEMO_PAYWALL"] == "1" { showingPaywall = true }
         }
         .alert("Open in Google Docs", isPresented: $showingGoogleDocsHelp) {
             #if os(iOS)
