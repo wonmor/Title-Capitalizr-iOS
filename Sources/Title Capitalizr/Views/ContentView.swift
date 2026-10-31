@@ -115,7 +115,7 @@ struct ContentView: View {
     }
 
     private var footer: some View {
-        Text("On-device | No account | Designed by John Seong")
+        Text("Designed by John Seong")
             .font(Bauhaus.Typo.caption)
             .foregroundStyle(Bauhaus.Palette.inkSecondary)
             .frame(maxWidth: .infinity, alignment: .center)
