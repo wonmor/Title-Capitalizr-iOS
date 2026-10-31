@@ -1,0 +1,83 @@
+{
+  "identifier" : "4E2B7C1A-9D3F-4A6B-8E21-7C5D0F9A3B12",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "19.99",
+      "familyShareable" : false,
+      "internalID" : "6840011001",
+      "localizations" : [
+        {
+          "description" : "Format and export essays in MLA, APA and Chicago, forever.",
+          "displayName" : "Pro Lifetime",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.johnseong.titlecapitalizr.pro.lifetime",
+      "referenceName" : "Title Capitalizr Pro Lifetime",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_developerTeamID" : "Z64KRUX3W3",
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21640011",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "Title Capitalizr Pro",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "Title Capitalizr Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6840011002",
+          "introductoryOffer" : {
+            "internalID" : "6840011003",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
+          "localizations" : [
+            {
+              "description" : "Format and export essays in MLA, APA and Chicago. 7-day free trial.",
+              "displayName" : "Pro Yearly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.johnseong.titlecapitalizr.pro.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Title Capitalizr Pro Yearly",
+          "subscriptionGroupID" : "21640011",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

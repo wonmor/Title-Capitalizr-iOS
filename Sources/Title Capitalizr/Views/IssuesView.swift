@@ -13,48 +13,27 @@ struct IssuesView: View {
     let onFix: (GrammarIssue) -> Void
     let onFixAll: () -> Void
 
-    @Environment(\.colorScheme) private var colorScheme
-
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack {
-                Label(issues.count == 1 ? "1 suggestion" : "\(issues.count) suggestions", systemImage: "checklist")
-                    .font(.headline)
-                Spacer()
+        VStack(alignment: .leading, spacing: Bauhaus.Space.m - 4) {
+            SectionTitle(issues.count == 1 ? "1 suggestion" : "\(issues.count) suggestions") {
                 if issues.count > 1 {
-                    Button("Fix all", action: onFixAll)
-                        .buttonStyle(.borderedProminent)
-                        .controlSize(.small)
+                    TagButton(title: "Fix all", systemImage: "wand.and.stars", filled: true, action: onFixAll)
                 }
             }
             ForEach(issues) { issue in
-                HStack(alignment: .top, spacing: 10) {
-                    Image(systemName: issue.systemImage)
-                        .foregroundColor(issue.kind == .aiSuggestion ? .purple : .orange)
-                        .frame(width: 22)
+                HStack(alignment: .top, spacing: Bauhaus.Space.m - 4) {
+                    GlyphTile(systemImage: issue.systemImage, fill: issue.kind == .aiSuggestion ? Bauhaus.Palette.blue : Bauhaus.Palette.yellow, size: 30)
                     VStack(alignment: .leading, spacing: 2) {
-                        Text(issue.title).font(.subheadline).bold()
-                        Text(issue.message).font(.footnote).foregroundColor(.secondary)
+                        Text(issue.title).font(Bauhaus.Typo.bodyBold)
+                        Text(issue.message).font(Bauhaus.Typo.caption).foregroundStyle(Bauhaus.Palette.inkSecondary)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                     Spacer(minLength: 4)
                     if let fix = issue.preferredReplacement {
-                        Button {
-                            onFix(issue)
-                        } label: {
-                            Text(fix.count > 18 ? "Fix" : "“\(fix)”")
-                                .lineLimit(1)
-                        }
-                        .buttonStyle(.bordered)
-                        .controlSize(.small)
+                        TagButton(title: fix.count > 18 ? "Fix" : "\u{201C}\(fix)\u{201D}") { onFix(issue) }
                     }
                 }
-                .padding(.vertical, 2)
             }
         }
-        .padding(12)
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(colorScheme == .dark ? Color.white.opacity(0.06) : Color.black.opacity(0.04))
-        )
     }
 }

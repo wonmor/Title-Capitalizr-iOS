@@ -16,7 +16,7 @@ final class Title_CapitalizrTests: XCTestCase {
         let mla = Capitalizer(inputLine: "the lord of the rings").capitalizeTitle(selectedOutput: .mla)
         XCTAssertEqual(mla, "The Lord of the Rings")
         let apa = Capitalizer(inputLine: "a war between the worlds").capitalizeTitle(selectedOutput: .apa)
-        XCTAssertEqual(apa, "A War between the Worlds")
+        XCTAssertEqual(apa, "A War Between the Worlds", "APA capitalizes words of four letters or more")
         XCTAssertEqual(Capitalizer(inputLine: "an apple a day").capitalizeTitle(selectedOutput: .mla), "An Apple a Day")
     }
 

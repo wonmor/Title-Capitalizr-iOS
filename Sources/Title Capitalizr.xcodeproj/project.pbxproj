@@ -10,16 +10,36 @@
 		0614AC284D8390E0A06843A0 /* Title_CapitalizrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FE4E94407897CF8105471D /* Title_CapitalizrApp.swift */; };
 		0C2237A2E91CA21161CB8919 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41305D902D8FB07478F6FA8 /* SettingsView.swift */; };
 		19616CD2C2A547714779FC79 /* IssuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514839818DAE81572890F6D /* IssuesView.swift */; };
+		2B36A7A493D5C9A317DE89C5 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7898620118B0E63F0449C4 /* Zip.swift */; };
+		2CB252EE7C2C5F5E8AA02A6F /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7B14CE622E5EB627B39F6224 /* OFL.txt */; };
 		3357F3C584430978133A3977 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188DC45FFFD60FE6799F968B /* Models.swift */; };
-		415E0F887D8253A7BDDC1095 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143FC5CD146A075D65DF1EC4 /* PickerView.swift */; };
+		3E048D28417C0DA5AC8DFF22 /* PlatformExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AE209977D766F8AF18F901 /* PlatformExport.swift */; };
 		41A027C4A358FBD82709F14E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE3FBB9A739C804E52B4324 /* Preview Assets.xcassets */; };
+		45CFE9FB6BF68FB3D3C4DF4F /* Jost-Italic[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE807FF222A34758C13AA6A2 /* Jost-Italic[wght].ttf */; };
+		4A5BC263DCDD8CCD9A7A393B /* EssayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2298DDD6FD57A039D7401D1E /* EssayModel.swift */; };
+		51FDE3FAC50BD3FDE8BBDB7E /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2AAA27A42967613DBA4CC9 /* PaywallView.swift */; };
+		53790E05CD8867E90BAB62FB /* DocxReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3433D55D874E9C93132F4 /* DocxReader.swift */; };
 		53A5851FF9E450132F2ECA10 /* GrammarChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06DFD88BEA3A9E86A4A7418 /* GrammarChecker.swift */; };
 		591F2E8197513C9DC6412378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B58986E3E441C1B6316844C /* Assets.xcassets */; };
+		64893D6B2ECC83219258E7B7 /* EssayAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34973016D8819DD569C4A02A /* EssayAssistant.swift */; };
+		6529E17EC079C35197253EA7 /* DocxWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62109D8F529297F0303E3CF5 /* DocxWriter.swift */; };
+		68E7CE23143A2780520DB77F /* EssayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51167D490129300B8A1AA9C /* EssayView.swift */; };
+		7BD884318760058902059F72 /* EssayExporters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FD36040497B92DB46F251 /* EssayExporters.swift */; };
 		85642B1CC4B13E9F8E79242D /* SpellChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D93D8C12642880BB5C8E68 /* SpellChecker.swift */; };
 		8D4DD7B98AC5347F993A9F1D /* Title_CapitalizrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C66897AAF4C37847BC9270 /* Title_CapitalizrTests.swift */; };
 		9183515FD330A141A898100F /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A61AADD61D65D3BF1154BB /* Platform.swift */; };
+		9C6DB8CD319F33EE6706159A /* GoogleDocsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBB224CD1B832BF5C71EB05 /* GoogleDocsFetcher.swift */; };
+		9E2D2AC3DCA08AE83C39C888 /* sample-essay.docx in Resources */ = {isa = PBXBuildFile; fileRef = 3A15D8CBF69E6576FAA0E78C /* sample-essay.docx */; };
+		B09D8494C1B9733F5FA277A2 /* EssayWorkspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C59E72B4EBC94B3418CFA /* EssayWorkspace.swift */; };
+		B4070D702C2B788117BEA5F6 /* EssayFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516DC3625409C03C8733E1EC /* EssayFormatter.swift */; };
 		BED6128C2878FBBE26F258B0 /* SmartCapitalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54766E505C7663BDD18F666B /* SmartCapitalizer.swift */; };
+		BF302E3301DE41A34290E590 /* TextReaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3BD5DE013F3865A8C5030C /* TextReaders.swift */; };
+		C600EDC0EE0408906AA14E1F /* EssayFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2B40EB1A48DCF2127E9BA /* EssayFormatterTests.swift */; };
 		C7A7E1A9EF3ED885A59FB73F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2503075B3E87CD22496871F /* ContentView.swift */; };
+		D7842EB4A36E9E152E074BC0 /* Jost[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AF67916AF3A7C3A0B720E91 /* Jost[wght].ttf */; };
+		D7E055D11A1535C310AB299B /* EssayAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2752DC13C76D91016E4C1EA2 /* EssayAnalyzer.swift */; };
+		E618D3309ED7ECCB7109446D /* ProStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4900E8D6ABBFDF4F7AE5D /* ProStore.swift */; };
+		F8163AF50B22843029CFE137 /* Bauhaus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDBA62022E12018925A4559 /* Bauhaus.swift */; };
 		FF296D76C556911A3093E238 /* GrammarIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D9A4156453C379AC4D9EA4 /* GrammarIssue.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,22 +54,43 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		143FC5CD146A075D65DF1EC4 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		0BDBA62022E12018925A4559 /* Bauhaus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bauhaus.swift; sourceTree = "<group>"; };
+		180C59E72B4EBC94B3418CFA /* EssayWorkspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayWorkspace.swift; sourceTree = "<group>"; };
 		188DC45FFFD60FE6799F968B /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		1B58986E3E441C1B6316844C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2298DDD6FD57A039D7401D1E /* EssayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayModel.swift; sourceTree = "<group>"; };
 		24D9A4156453C379AC4D9EA4 /* GrammarIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarIssue.swift; sourceTree = "<group>"; };
 		2514839818DAE81572890F6D /* IssuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesView.swift; sourceTree = "<group>"; };
+		2752DC13C76D91016E4C1EA2 /* EssayAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayAnalyzer.swift; sourceTree = "<group>"; };
+		2C2AAA27A42967613DBA4CC9 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		34973016D8819DD569C4A02A /* EssayAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayAssistant.swift; sourceTree = "<group>"; };
+		35AE209977D766F8AF18F901 /* PlatformExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformExport.swift; sourceTree = "<group>"; };
+		3A15D8CBF69E6576FAA0E78C /* sample-essay.docx */ = {isa = PBXFileReference; path = "sample-essay.docx"; sourceTree = "<group>"; };
+		3AF67916AF3A7C3A0B720E91 /* Jost[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost[wght].ttf"; sourceTree = "<group>"; };
+		3C7898620118B0E63F0449C4 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
+		4D3BD5DE013F3865A8C5030C /* TextReaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextReaders.swift; sourceTree = "<group>"; };
+		516DC3625409C03C8733E1EC /* EssayFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayFormatter.swift; sourceTree = "<group>"; };
 		54766E505C7663BDD18F666B /* SmartCapitalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCapitalizer.swift; sourceTree = "<group>"; };
+		5CBB224CD1B832BF5C71EB05 /* GoogleDocsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDocsFetcher.swift; sourceTree = "<group>"; };
+		61B2B40EB1A48DCF2127E9BA /* EssayFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayFormatterTests.swift; sourceTree = "<group>"; };
+		62109D8F529297F0303E3CF5 /* DocxWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocxWriter.swift; sourceTree = "<group>"; };
 		70C66897AAF4C37847BC9270 /* Title_CapitalizrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title_CapitalizrTests.swift; sourceTree = "<group>"; };
 		76F6106808C270EE1761604F /* Title CapitalizrTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = "Title CapitalizrTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B14CE622E5EB627B39F6224 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		9FE3FBB9A739C804E52B4324 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A1FE4E94407897CF8105471D /* Title_CapitalizrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title_CapitalizrApp.swift; sourceTree = "<group>"; };
 		A4D93D8C12642880BB5C8E68 /* SpellChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellChecker.swift; sourceTree = "<group>"; };
+		B8E69EBE18D39508307D5059 /* TitleCapitalizr.storekit */ = {isa = PBXFileReference; path = TitleCapitalizr.storekit; sourceTree = "<group>"; };
 		BBABD6A8D3B311B9E85B7789 /* Title Capitalizr.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Title Capitalizr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3A61AADD61D65D3BF1154BB /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		C41305D902D8FB07478F6FA8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C9B4900E8D6ABBFDF4F7AE5D /* ProStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProStore.swift; sourceTree = "<group>"; };
+		CE807FF222A34758C13AA6A2 /* Jost-Italic[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Italic[wght].ttf"; sourceTree = "<group>"; };
+		D6C3433D55D874E9C93132F4 /* DocxReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocxReader.swift; sourceTree = "<group>"; };
+		ED4FD36040497B92DB46F251 /* EssayExporters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayExporters.swift; sourceTree = "<group>"; };
 		F06DFD88BEA3A9E86A4A7418 /* GrammarChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarChecker.swift; sourceTree = "<group>"; };
 		F2503075B3E87CD22496871F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F51167D490129300B8A1AA9C /* EssayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -60,12 +101,32 @@
 				188DC45FFFD60FE6799F968B /* Models.swift */,
 				A1FE4E94407897CF8105471D /* Title_CapitalizrApp.swift */,
 				A9C51DB86F2CA7ECCE61960F /* AI */,
+				26F5E68955B09E4F6A7B85EA /* Design */,
+				A0910FA33C5566DC68FA4A8C /* Essay */,
 				998EFCA2E4858720CF113321 /* Grammar */,
 				CC929FC5EBBAA44032226320 /* Preview Content */,
+				EB30F5AEAA6AEDABAE32162C /* Resources */,
+				A1E9E16C08D8EE1875729772 /* Store */,
 				81CEDB4E8819729AC5B0C643 /* Support */,
 				C442FE4645689A2968229C09 /* Views */,
 			);
 			path = "Title Capitalizr";
+			sourceTree = "<group>";
+		};
+		26F5E68955B09E4F6A7B85EA /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				0BDBA62022E12018925A4559 /* Bauhaus.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		2EAB4AB7D3AD8993447AEF1F /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				3A15D8CBF69E6576FAA0E78C /* sample-essay.docx */,
+			);
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		2F01858BA681859EB9F19A22 /* Products */ = {
@@ -80,7 +141,9 @@
 		5172E06B40E1E4E054CC04BF /* Title CapitalizrTests */ = {
 			isa = PBXGroup;
 			children = (
+				61B2B40EB1A48DCF2127E9BA /* EssayFormatterTests.swift */,
 				70C66897AAF4C37847BC9270 /* Title_CapitalizrTests.swift */,
+				2EAB4AB7D3AD8993447AEF1F /* Fixtures */,
 			);
 			path = "Title CapitalizrTests";
 			sourceTree = "<group>";
@@ -93,6 +156,16 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		8A570460DCD5F24AE7AFB82A /* Essay */ = {
+			isa = PBXGroup;
+			children = (
+				F51167D490129300B8A1AA9C /* EssayView.swift */,
+				180C59E72B4EBC94B3418CFA /* EssayWorkspace.swift */,
+				35AE209977D766F8AF18F901 /* PlatformExport.swift */,
+			);
+			path = Essay;
+			sourceTree = "<group>";
+		};
 		998EFCA2E4858720CF113321 /* Grammar */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,9 +176,34 @@
 			path = Grammar;
 			sourceTree = "<group>";
 		};
+		A0910FA33C5566DC68FA4A8C /* Essay */ = {
+			isa = PBXGroup;
+			children = (
+				D6C3433D55D874E9C93132F4 /* DocxReader.swift */,
+				62109D8F529297F0303E3CF5 /* DocxWriter.swift */,
+				2752DC13C76D91016E4C1EA2 /* EssayAnalyzer.swift */,
+				ED4FD36040497B92DB46F251 /* EssayExporters.swift */,
+				516DC3625409C03C8733E1EC /* EssayFormatter.swift */,
+				2298DDD6FD57A039D7401D1E /* EssayModel.swift */,
+				5CBB224CD1B832BF5C71EB05 /* GoogleDocsFetcher.swift */,
+				4D3BD5DE013F3865A8C5030C /* TextReaders.swift */,
+				3C7898620118B0E63F0449C4 /* Zip.swift */,
+			);
+			path = Essay;
+			sourceTree = "<group>";
+		};
+		A1E9E16C08D8EE1875729772 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				C9B4900E8D6ABBFDF4F7AE5D /* ProStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		A9C51DB86F2CA7ECCE61960F /* AI */ = {
 			isa = PBXGroup;
 			children = (
+				34973016D8819DD569C4A02A /* EssayAssistant.swift */,
 				54766E505C7663BDD18F666B /* SmartCapitalizer.swift */,
 			);
 			path = AI;
@@ -114,6 +212,7 @@
 		B6B15857C816C6B40CF28DF3 = {
 			isa = PBXGroup;
 			children = (
+				D10A0496BA36E798B10F686A /* StoreKit */,
 				0CC93197E19B056FCD194A00 /* Title Capitalizr */,
 				5172E06B40E1E4E054CC04BF /* Title CapitalizrTests */,
 				2F01858BA681859EB9F19A22 /* Products */,
@@ -125,8 +224,9 @@
 			children = (
 				F2503075B3E87CD22496871F /* ContentView.swift */,
 				2514839818DAE81572890F6D /* IssuesView.swift */,
-				143FC5CD146A075D65DF1EC4 /* PickerView.swift */,
+				2C2AAA27A42967613DBA4CC9 /* PaywallView.swift */,
 				C41305D902D8FB07478F6FA8 /* SettingsView.swift */,
+				8A570460DCD5F24AE7AFB82A /* Essay */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,6 +239,32 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D10A0496BA36E798B10F686A /* StoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				B8E69EBE18D39508307D5059 /* TitleCapitalizr.storekit */,
+			);
+			path = StoreKit;
+			sourceTree = "<group>";
+		};
+		DCC303DB71CBE29225B035C4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CE807FF222A34758C13AA6A2 /* Jost-Italic[wght].ttf */,
+				3AF67916AF3A7C3A0B720E91 /* Jost[wght].ttf */,
+				7B14CE622E5EB627B39F6224 /* OFL.txt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		EB30F5AEAA6AEDABAE32162C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DCC303DB71CBE29225B035C4 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,6 +273,7 @@
 			buildConfigurationList = 60EDBBED89AD726AF9FF6C95 /* Build configuration list for PBXNativeTarget "Title CapitalizrTests" */;
 			buildPhases = (
 				F55086B52E0943097B847853 /* Sources */,
+				AAF287FE032D23C2D7F47E18 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -218,11 +345,22 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AAF287FE032D23C2D7F47E18 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E2D2AC3DCA08AE83C39C888 /* sample-essay.docx in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B0E4A3B7C8349480F8E5A9BF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				591F2E8197513C9DC6412378 /* Assets.xcassets in Resources */,
+				45CFE9FB6BF68FB3D3C4DF4F /* Jost-Italic[wght].ttf in Resources */,
+				D7842EB4A36E9E152E074BC0 /* Jost[wght].ttf in Resources */,
+				2CB252EE7C2C5F5E8AA02A6F /* OFL.txt in Resources */,
 				41A027C4A358FBD82709F14E /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,17 +372,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8163AF50B22843029CFE137 /* Bauhaus.swift in Sources */,
 				C7A7E1A9EF3ED885A59FB73F /* ContentView.swift in Sources */,
+				53790E05CD8867E90BAB62FB /* DocxReader.swift in Sources */,
+				6529E17EC079C35197253EA7 /* DocxWriter.swift in Sources */,
+				D7E055D11A1535C310AB299B /* EssayAnalyzer.swift in Sources */,
+				64893D6B2ECC83219258E7B7 /* EssayAssistant.swift in Sources */,
+				7BD884318760058902059F72 /* EssayExporters.swift in Sources */,
+				B4070D702C2B788117BEA5F6 /* EssayFormatter.swift in Sources */,
+				4A5BC263DCDD8CCD9A7A393B /* EssayModel.swift in Sources */,
+				68E7CE23143A2780520DB77F /* EssayView.swift in Sources */,
+				B09D8494C1B9733F5FA277A2 /* EssayWorkspace.swift in Sources */,
+				9C6DB8CD319F33EE6706159A /* GoogleDocsFetcher.swift in Sources */,
 				53A5851FF9E450132F2ECA10 /* GrammarChecker.swift in Sources */,
 				FF296D76C556911A3093E238 /* GrammarIssue.swift in Sources */,
 				19616CD2C2A547714779FC79 /* IssuesView.swift in Sources */,
 				3357F3C584430978133A3977 /* Models.swift in Sources */,
-				415E0F887D8253A7BDDC1095 /* PickerView.swift in Sources */,
+				51FDE3FAC50BD3FDE8BBDB7E /* PaywallView.swift in Sources */,
 				9183515FD330A141A898100F /* Platform.swift in Sources */,
+				3E048D28417C0DA5AC8DFF22 /* PlatformExport.swift in Sources */,
+				E618D3309ED7ECCB7109446D /* ProStore.swift in Sources */,
 				0C2237A2E91CA21161CB8919 /* SettingsView.swift in Sources */,
 				BED6128C2878FBBE26F258B0 /* SmartCapitalizer.swift in Sources */,
 				85642B1CC4B13E9F8E79242D /* SpellChecker.swift in Sources */,
+				BF302E3301DE41A34290E590 /* TextReaders.swift in Sources */,
 				0614AC284D8390E0A06843A0 /* Title_CapitalizrApp.swift in Sources */,
+				2B36A7A493D5C9A317DE89C5 /* Zip.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C600EDC0EE0408906AA14E1F /* EssayFormatterTests.swift in Sources */,
 				8D4DD7B98AC5347F993A9F1D /* Title_CapitalizrTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +528,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = Z64KRUX3W3;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -395,7 +549,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -470,7 +624,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = Z64KRUX3W3;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -485,7 +639,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";

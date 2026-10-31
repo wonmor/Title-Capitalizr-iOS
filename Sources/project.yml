@@ -12,8 +12,8 @@ settings:
     SWIFT_VERSION: "5.0"
     DEVELOPMENT_TEAM: Z64KRUX3W3
     CODE_SIGN_STYLE: Automatic
-    MARKETING_VERSION: "1.6"
-    CURRENT_PROJECT_VERSION: 3
+    MARKETING_VERSION: "1.7"
+    CURRENT_PROJECT_VERSION: 4
 targets:
   Title Capitalizr:
     type: application
@@ -21,6 +21,8 @@ targets:
     sources:
       - path: Title Capitalizr
         excludes: ["Title Capitalizr.entitlements", "Info.plist"]
+      - path: StoreKit/TitleCapitalizr.storekit
+        buildPhase: none
     info:
       path: Title Capitalizr/Info.plist
       properties:
@@ -36,6 +38,17 @@ targets:
           UISceneConfigurations: {}
         UIApplicationSupportsIndirectInputEvents: true
         UILaunchScreen: {}
+        LSSupportsOpeningDocumentsInPlace: false
+        LSApplicationQueriesSchemes: [googledocs]
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: Essay
+            CFBundleTypeRole: Viewer
+            LSHandlerRank: Alternate
+            LSItemContentTypes:
+              - org.openxmlformats.wordprocessingml.document
+              - com.adobe.pdf
+              - public.rtf
+              - public.plain-text
         UISupportedInterfaceOrientations~iphone: [UIInterfaceOrientationPortrait]
         UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
     settings:
@@ -70,6 +83,7 @@ schemes:
         Title CapitalizrTests: [test]
     run:
       config: Debug
+      storeKitConfiguration: StoreKit/TitleCapitalizr.storekit
     test:
       config: Debug
       targets: [Title CapitalizrTests]
