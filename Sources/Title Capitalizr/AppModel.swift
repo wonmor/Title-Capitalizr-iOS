@@ -161,9 +161,10 @@ final class EditorModel: ObservableObject {
     let library: LibraryStore
     let store: ProStore
 
-    init(library: LibraryStore = .shared, store: ProStore = .shared) {
+    init(library: LibraryStore? = nil, store: ProStore? = nil) {
+        let library = library ?? .shared
         self.library = library
-        self.store = store
+        self.store = store ?? .shared
         let saved = UserDefaults.standard.string(forKey: Self.guideKey).flatMap(StyleGuide.init(rawValue:))
         let g = saved ?? .mla
         guide = g

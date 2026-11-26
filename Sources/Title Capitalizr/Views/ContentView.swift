@@ -20,6 +20,7 @@ struct ContentView: View {
     @Environment(\.scenePhase) private var phase
     @State private var showingSettings = false
     @State private var columns: NavigationSplitViewVisibility = .all
+    @SceneStorage("macSidebar") private var showMacSidebar = true
 
     private var useSplit: Bool {
         #if os(macOS)
@@ -67,14 +68,51 @@ struct ContentView: View {
         .onAppear(perform: applyDemoEnvironment)
     }
 
+    /// Screenshot runs: TC_DEMO_SCROLL=why|ai|preview scrolls to that panel.
+    private func demoScroll(_ proxy: ScrollViewProxy) {
+        guard let raw = ProcessInfo.processInfo.environment["TC_DEMO_SCROLL"] else { return }
+        let parts = raw.split(separator: "@").map(String.init)
+        let unit: UnitPoint = parts.count > 1 && parts[1] == "bottom" ? .bottom : .top
+        Task { @MainActor in
+            try? await Task.sleep(nanoseconds: 1_500_000_000)
+            proxy.scrollTo(parts[0], anchor: unit)
+        }
+    }
+
     // MARK: Layouts
 
+    @ViewBuilder
     private var splitLayout: some View {
+        #if os(macOS)
+        HStack(spacing: 0) {
+            if showMacSidebar {
+                SidebarView(model: model, library: library, store: store)
+                    .frame(width: 270)
+                    .transition(.move(edge: .leading))
+            }
+            detailColumn
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigation) {
+                Button { withAnimation(.easeOut(duration: 0.2)) { showMacSidebar.toggle() } } label: {
+                    Label("Sidebar", systemImage: "sidebar.left")
+                }
+                .help("Show or hide the sidebar")
+            }
+        }
+        #else
         NavigationSplitView(columnVisibility: $columns) {
             SidebarView(model: model, library: library, store: store)
                 .navigationSplitViewColumnWidth(min: 240, ideal: 280, max: 360)
         } detail: {
-            ScrollView {
+            detailColumn
+        }
+        .navigationSplitViewStyle(.balanced)
+        #endif
+    }
+
+    private var detailColumn: some View {
+            ScrollViewReader { proxy in ScrollView {
                 VStack(alignment: .leading, spacing: Bauhaus.Space.l) {
                     detailHeader
                     workspaceContent(wide: true)
@@ -84,17 +122,17 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity)
             }
             .background(Bauhaus.Palette.ground)
+            .onAppear { demoScroll(proxy) }
+            }
             #if os(iOS)
             .scrollDismissesKeyboard(.interactively)
             .navigationBarTitleDisplayMode(.inline)
             #endif
             .toolbar { detailToolbar }
-        }
-        .navigationSplitViewStyle(.balanced)
     }
 
     private var compactLayout: some View {
-        ScrollView {
+        ScrollViewReader { proxy in ScrollView {
             VStack(alignment: .leading, spacing: Bauhaus.Space.l) {
                 Masthead(onHistory: { hideKeyboard(); model.showingHistory = true },
                          onSettings: { hideKeyboard(); showingSettings = true })
@@ -112,6 +150,8 @@ struct ContentView: View {
             .padding(.bottom, Bauhaus.Space.xl)
             .frame(maxWidth: 720)
             .frame(maxWidth: .infinity)
+        }
+        .onAppear { demoScroll(proxy) }
         }
         #if os(iOS)
         .scrollDismissesKeyboard(.interactively)
@@ -279,6 +319,95 @@ struct SidebarView: View {
     }
 
     var body: some View {
+        #if os(macOS)
+        macBody
+        #else
+        listBody
+        #endif
+    }
+
+    #if os(macOS)
+    /// Mac: a plain Bauhaus column (no vibrancy material), same sections as the iPad list.
+    private var macBody: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: Bauhaus.Space.l) {
+                macSection("Workspaces") {
+                    ForEach(Workspace.allCases) { w in
+                        macRow(selected: model.workspace == w) { model.workspace = w } label: {
+                            Label(w.name, systemImage: w.systemImage).font(Bauhaus.Typo.bodyBold)
+                        }
+                    }
+                }
+                macSection("Style guides") {
+                    ForEach(StyleGuide.allCases) { g in
+                        macRow(selected: false) { model.workspace = .title; model.choose(g) } label: {
+                            HStack(spacing: 6) {
+                                Image(systemName: "checkmark").font(.system(size: 11, weight: .bold))
+                                    .foregroundStyle(Bauhaus.Palette.blue).opacity(g == model.guide ? 1 : 0).frame(width: 14)
+                                Text(g.displayName).font(Bauhaus.Typo.body)
+                                Spacer(minLength: 0)
+                                if !store.isUnlocked(g) { Image(systemName: "lock").font(.system(size: 11)).foregroundStyle(Bauhaus.Palette.redInk) }
+                            }
+                        }
+                        .accessibilityLabel(g.displayName + (store.isUnlocked(g) ? "" : ", Pro"))
+                    }
+                }
+                if !library.favorites.isEmpty {
+                    macSection("Favourites") { ForEach(library.favorites) { e in macEntry(e) } }
+                }
+                macSection("History") {
+                    if library.recents.isEmpty {
+                        Text("Copied titles appear here.").font(Bauhaus.Typo.caption).foregroundStyle(Bauhaus.Palette.inkSecondary)
+                    }
+                    ForEach(library.recents.prefix(40)) { e in macEntry(e) }
+                }
+            }
+            .padding(.horizontal, Bauhaus.Space.m)
+            .padding(.vertical, Bauhaus.Space.m)
+        }
+        .background(Bauhaus.Palette.groundSoft)
+        .overlay(alignment: .trailing) { VRule(thickness: Bauhaus.Rule.regular) }
+    }
+
+    private func macSection<C: View>(_ title: String, @ViewBuilder content: () -> C) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            header(title)
+            HRule(thickness: Bauhaus.Rule.thick).padding(.bottom, 4)
+            content()
+        }
+    }
+
+    private func macRow<L: View>(selected: Bool, action: @escaping () -> Void, @ViewBuilder label: () -> L) -> some View {
+        Button(action: action) {
+            label()
+                .foregroundStyle(selected ? Bauhaus.Palette.ground : Bauhaus.Palette.ink)
+                .padding(.horizontal, 8).padding(.vertical, 5)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(selected ? Bauhaus.Palette.blue : Color.clear)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func macEntry(_ e: HistoryEntry) -> some View {
+        macRow(selected: false) { model.restore(e) } label: {
+            VStack(alignment: .leading, spacing: 1) {
+                Text(e.output).font(Bauhaus.Typo.body).lineLimit(2)
+                Text(e.guide.shortName.uppercased()).font(Bauhaus.Typo.section).tracking(1).foregroundStyle(Bauhaus.Palette.inkSecondary)
+            }
+        }
+        .draggable(e.output)
+        .contextMenu {
+            Button { Platform.copyToClipboard(e.output) } label: { Label("Copy", systemImage: "doc.on.doc") }
+            Button { library.toggleFavorite(e) } label: {
+                Label(e.favorite ? "Remove from Favourites" : "Add to Favourites", systemImage: e.favorite ? "star.slash" : "star")
+            }
+            Button(role: .destructive) { library.delete(e) } label: { Label("Delete", systemImage: "trash") }
+        }
+    }
+    #endif
+
+    private var listBody: some View {
         List(selection: selection) {
             Section {
                 ForEach(Workspace.allCases) { w in

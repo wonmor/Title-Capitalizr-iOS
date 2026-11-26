@@ -19,11 +19,6 @@ struct PaywallView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: Bauhaus.Space.l) {
                 header
-                VStack(alignment: .leading, spacing: Bauhaus.Space.m - 4) {
-                    ForEach(ProFeature.allCases) { f in
-                        perk(f.systemImage, color(for: f), f.title)
-                    }
-                }
                 plans
                 if store.isPro {
                     BarButton(title: "Pro is active", systemImage: "checkmark", kind: .action) { dismiss() }
@@ -37,6 +32,11 @@ struct PaywallView: View {
                 }
                 if let m = store.message {
                     Text(m).font(Bauhaus.Typo.body).fixedSize(horizontal: false, vertical: true)
+                }
+                VStack(alignment: .leading, spacing: Bauhaus.Space.m - 4) {
+                    ForEach(ProFeature.allCases) { f in
+                        perk(f.systemImage, color(for: f), f.title)
+                    }
                 }
                 HStack(spacing: Bauhaus.Space.m) {
                     Button("Restore purchases") { Task { await store.restore() } }

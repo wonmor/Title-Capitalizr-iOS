@@ -35,9 +35,9 @@ struct TitleWorkspaceView: View {
                     .frame(maxWidth: .infinity)
                 }
             } else {
-                EditorBox(model: model, minHeight: 64)
-                PreviewPanel(model: model, library: library)
-                WhyPanel(model: model, store: store, library: library)
+                EditorBox(model: model, minHeight: 64).id("editor")
+                PreviewPanel(model: model, library: library).id("preview")
+                WhyPanel(model: model, store: store, library: library).id("why")
                 ChecksPanel(model: model)
                 AIPanel(model: model, store: store)
             }

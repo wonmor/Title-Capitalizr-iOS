@@ -122,7 +122,7 @@ struct BatchView: View {
                 }
             } else {
                 inputColumn
-                outputColumn
+                outputColumn.id("output")
             }
         }
         .fileExporter(isPresented: $exporting, document: TextFileDocument(text: model.batchOutput),
@@ -259,7 +259,7 @@ struct ToolsView: View {
                 }
             } else {
                 input
-                output
+                output.id("output")
             }
         }
     }

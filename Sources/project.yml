@@ -13,7 +13,7 @@ settings:
     DEVELOPMENT_TEAM: Z64KRUX3W3
     CODE_SIGN_STYLE: Automatic
     MARKETING_VERSION: "1.7"
-    CURRENT_PROJECT_VERSION: 5
+    CURRENT_PROJECT_VERSION: 6
 packages:
   TitleCaseKit:
     path: TitleCaseKit

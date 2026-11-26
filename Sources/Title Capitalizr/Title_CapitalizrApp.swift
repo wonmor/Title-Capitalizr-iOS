@@ -117,6 +117,8 @@ final class MacAppDelegate: NSObject, NSApplicationDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             guard let w = NSApp.windows.first(where: { $0.isVisible && $0.contentView != nil }), let view = w.contentView,
                   let rep = view.bitmapImageRepForCachingDisplay(in: view.bounds) else { exit(2) }
+            w.makeFirstResponder(nil)
+            view.display()
             view.cacheDisplay(in: view.bounds, to: rep)
             try? rep.representation(using: .png, properties: [:])?.write(to: URL(fileURLWithPath: path))
             exit(0)
