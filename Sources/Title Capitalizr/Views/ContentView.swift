@@ -3,107 +3,238 @@
 //  Title Capitalizr
 //
 //  Created by John Seong on 2022-05-16.
-//  Bauhaus redesign and essay formatter, version 1.7.
+//  1.7: iPad and Mac split layout (sidebar with workspaces, style guides, favourites and history;
+//  editor beside a live preview), iPhone single column, keyboard shortcuts, drag and drop.
 //
 
 import SwiftUI
-
-enum AppMode: String { case title, essay }
+import TitleCaseKit
+import UniformTypeIdentifiers
 
 struct ContentView: View {
-    @StateObject private var workspace = EssayWorkspace()
+    @StateObject private var model = EditorModel()
+    @StateObject private var essay = EssayWorkspace()
     @ObservedObject private var store = ProStore.shared
-    @SceneStorage("mode") private var modeRaw = AppMode.title.rawValue
+    @ObservedObject private var library = LibraryStore.shared
+    @Environment(\.horizontalSizeClass) private var hSize
+    @Environment(\.scenePhase) private var phase
     @State private var showingSettings = false
+    @State private var columns: NavigationSplitViewVisibility = .all
 
-    private var mode: Binding<AppMode> {
-        Binding(get: { AppMode(rawValue: modeRaw) ?? .title }, set: { modeRaw = $0.rawValue })
+    private var useSplit: Bool {
+        #if os(macOS)
+        return true
+        #else
+        return hSize == .regular
+        #endif
     }
 
     var body: some View {
-        ScrollViewReader { proxy in
+        Group {
+            if useSplit { splitLayout } else { compactLayout }
+        }
+        .focusedSceneObject(model)
+        .bauhausScreen()
+        .sheet(isPresented: $model.showingPaywall) { PaywallView(store: store).bauhausSheet() }
+        .sheet(isPresented: $showingSettings) { SettingsView(store: store).bauhausSheet() }
+        .sheet(isPresented: $model.showingHistory) {
+            HistoryView(library: library, onSelect: { model.restore($0); model.showingHistory = false }, showsDone: true)
+                .bauhausScreen()
+                .bauhausSheet()
+        }
+        .onOpenURL { url in
+            if model.handle(url: url) { return }
+            model.workspace = .essay
+            if url.isFileURL { essay.load(url: url) } else { essay.load(googleDocsLink: url.absoluteString) }
+        }
+        .onChange(of: store.isPro) { _, _ in model.refreshAll() }
+        .onChange(of: library.dictionary) { _, _ in model.refreshAll() }
+        .onChange(of: phase) { _, p in
+            guard p == .active else { return }
+            library.reload()
+            if let pending = library.takePendingInput() { model.receive(pending) }
+            Task { await store.foreground() }
+        }
+        .onChange(of: store.paywallRequested) { _, requested in
+            if requested { model.showingPaywall = true; store.paywallRequested = false }
+        }
+        .overlay(alignment: .bottom) { toast }
+        #if os(macOS)
+        .onReceive(NotificationCenter.default.publisher(for: .tcReceiveText)) { note in
+            if let text = note.object as? String { model.receive(text) }
+        }
+        #endif
+        .onAppear(perform: applyDemoEnvironment)
+    }
+
+    // MARK: Layouts
+
+    private var splitLayout: some View {
+        NavigationSplitView(columnVisibility: $columns) {
+            SidebarView(model: model, library: library, store: store)
+                .navigationSplitViewColumnWidth(min: 240, ideal: 280, max: 360)
+        } detail: {
+            ScrollView {
+                VStack(alignment: .leading, spacing: Bauhaus.Space.l) {
+                    detailHeader
+                    workspaceContent(wide: true)
+                }
+                .padding(Bauhaus.Space.l)
+                .frame(maxWidth: 1180)
+                .frame(maxWidth: .infinity)
+            }
+            .background(Bauhaus.Palette.ground)
+            #if os(iOS)
+            .scrollDismissesKeyboard(.interactively)
+            .navigationBarTitleDisplayMode(.inline)
+            #endif
+            .toolbar { detailToolbar }
+        }
+        .navigationSplitViewStyle(.balanced)
+    }
+
+    private var compactLayout: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: Bauhaus.Space.l) {
-                masthead
-                Segmented(options: [(AppMode.title, "Title"), (AppMode.essay, "Essay")], selection: mode, identifierPrefix: "mode")
-                switch mode.wrappedValue {
-                case .title: TitleCaseView()
-                case .essay: EssayView(workspace: workspace, store: store)
-                }
-                footer
+                Masthead(onHistory: { hideKeyboard(); model.showingHistory = true },
+                         onSettings: { hideKeyboard(); showingSettings = true })
+                Segmented(options: Workspace.allCases.map { ($0, $0 == .tools ? "Tools" : $0.name) },
+                          selection: $model.workspace, identifierPrefix: "mode")
+                workspaceContent(wide: false)
+                Text("Designed by John Seong")
+                    .font(Bauhaus.Typo.caption)
+                    .foregroundStyle(Bauhaus.Palette.inkSecondary)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.top, Bauhaus.Space.m)
             }
-            .padding(.horizontal, Bauhaus.Space.l)
+            .padding(.horizontal, Bauhaus.Space.m + 4)
             .padding(.top, Bauhaus.Space.m)
             .padding(.bottom, Bauhaus.Space.xl)
             .frame(maxWidth: 720)
             .frame(maxWidth: .infinity)
         }
-        .onAppear {
-            // Screenshot runs: TC_DEMO_SCROLL=checks|preview|export scrolls to that section.
-            if let anchor = ProcessInfo.processInfo.environment["TC_DEMO_SCROLL"] {
-                Task { @MainActor in
-                    try? await Task.sleep(nanoseconds: 1_200_000_000)
-                    proxy.scrollTo(anchor, anchor: .top)
-                }
-            }
-        }
-        }
         #if os(iOS)
         .scrollDismissesKeyboard(.interactively)
         #endif
-        .bauhausScreen()
-        .sheet(isPresented: $showingSettings) {
-            SettingsView(store: store).bauhausSheet()
-        }
-        .onOpenURL { url in
-            mode.wrappedValue = .essay
-            if url.isFileURL { workspace.load(url: url) } else { workspace.load(googleDocsLink: url.absoluteString) }
-        }
-        .onAppear(perform: applyDemoEnvironment)
     }
 
-    /// TC_DEMO_MODE=essay opens the formatter; TC_DEMO_SAMPLE=1 loads the sample essay;
-    /// TC_DEMO_STYLE=apa7 picks a style; TC_DEMO_SHOW_SETTINGS / TC_DEMO_PAYWALL open sheets.
-    /// Used for screenshots and UI smoke runs only.
+    private var detailHeader: some View {
+        VStack(alignment: .leading, spacing: Bauhaus.Space.s) {
+            HStack(alignment: .firstTextBaseline) {
+                Text(model.workspace.name.uppercased()).font(Bauhaus.Typo.display).tracking(1)
+                Spacer()
+            }
+            HStack(spacing: 0) {
+                Bauhaus.Palette.red.frame(width: 48, height: Bauhaus.Rule.heavy)
+                Bauhaus.Palette.yellow.frame(width: 48, height: Bauhaus.Rule.heavy)
+                Bauhaus.Palette.blue.frame(width: 48, height: Bauhaus.Rule.heavy)
+                Bauhaus.Palette.ink.frame(height: Bauhaus.Rule.heavy).frame(maxWidth: .infinity)
+            }
+            .accessibilityHidden(true)
+        }
+    }
+
+    @ToolbarContentBuilder
+    private var detailToolbar: some ToolbarContent {
+        ToolbarItemGroup(placement: .primaryAction) {
+            Button { model.pasteAndConvert() } label: { Label("Paste and Convert", systemImage: "doc.on.clipboard") }
+                .help("Paste and Convert (Shift Command V)")
+            Button { model.clear() } label: { Label("Clear", systemImage: "eraser") }
+                .help("Clear (Command K)")
+            if !store.isPro {
+                Button { model.showingPaywall = true } label: { Label("Pro", systemImage: "lock.open") }
+                    .help("See Pro plans")
+            }
+            #if os(iOS)
+            Button { showingSettings = true } label: { Label("Settings", systemImage: "gearshape") }
+            #endif
+        }
+    }
+
+    @ViewBuilder
+    private func workspaceContent(wide: Bool) -> some View {
+        switch model.workspace {
+        case .title: TitleWorkspaceView(model: model, store: store, library: library, wide: wide)
+        case .batch: BatchView(model: model, store: store, wide: wide)
+        case .tools: ToolsView(model: model, store: store, wide: wide)
+        case .essay: EssayView(workspace: essay, store: store)
+        }
+    }
+
+    @ViewBuilder
+    private var toast: some View {
+        if let text = model.flash {
+            Label(text, systemImage: "checkmark")
+                .font(Bauhaus.Typo.button)
+                .foregroundStyle(Bauhaus.Palette.ground)
+                .padding(.horizontal, Bauhaus.Space.m).padding(.vertical, Bauhaus.Space.s + 2)
+                .background(Bauhaus.Palette.ink)
+                .padding(.bottom, Bauhaus.Space.l)
+                .transition(.move(edge: .bottom).combined(with: .opacity))
+                .accessibilityAddTraits(.updatesFrequently)
+        }
+    }
+
+    /// Screenshot and UI smoke hooks (environment variables, never set in release use):
+    /// TC_DEMO_MODE=title|batch|tools|essay, TC_DEMO_TITLE, TC_DEMO_GUIDE, TC_DEMO_BATCH, TC_DEMO_TOOLS,
+    /// TC_DEMO_TOOL, TC_DEMO_SAMPLE=1, TC_DEMO_STYLE (essay), TC_DEMO_SHOW_SETTINGS, TC_DEMO_PAYWALL, TC_DEMO_HISTORY.
     private func applyDemoEnvironment() {
         let env = ProcessInfo.processInfo.environment
-        if let m = env["TC_DEMO_MODE"], let parsed = AppMode(rawValue: m) { mode.wrappedValue = parsed }
-        if env["TC_DEMO_SAMPLE"] == "1", !workspace.hasDocument { workspace.loadSample() }
-        if let s = env["TC_DEMO_STYLE"], let style = EssayStyle(rawValue: s) { workspace.style = style }
+        if let m = env["TC_DEMO_MODE"], let parsed = Workspace(rawValue: m) { model.workspace = parsed }
+        if let g = env["TC_DEMO_GUIDE"], let guide = StyleGuide(rawValue: g) { model.guide = guide }
+        if let t = env["TC_DEMO_TITLE"], model.input.isEmpty { model.input = t }
+        if let b = env["TC_DEMO_BATCH"] { model.batchInput = b.replacingOccurrences(of: "\\n", with: "\n") }
+        if env["TC_DEMO_BATCH_CSV"] == "1" { model.batchOptions.mode = .csvColumn; model.batchOptions.csvColumn = Int(env["TC_DEMO_BATCH_COL"] ?? "0") ?? 0 }
+        if let t = env["TC_DEMO_TOOLS"] { model.toolsInput = t.replacingOccurrences(of: "\\n", with: "\n") }
+        if let t = env["TC_DEMO_TOOL"], let tool = TextTool(rawValue: t) { model.tool = tool }
+        if env["TC_DEMO_SAMPLE"] == "1", !essay.hasDocument { essay.loadSample() }
+        if let s = env["TC_DEMO_STYLE"], let style = EssayStyle(rawValue: s) { essay.style = style }
         if env["TC_DEMO_SHOW_SETTINGS"] == "1" { showingSettings = true }
+        if env["TC_DEMO_PAYWALL"] == "1" { model.showingPaywall = true }
+        if env["TC_DEMO_HISTORY"] == "1" { model.showingHistory = true }
+        if let seed = env["TC_DEMO_SEED_HISTORY"] {
+            // "guide|input;guide|input*" (a trailing * marks a favourite)
+            for item in seed.split(separator: ";").reversed() {
+                let parts = item.split(separator: "|", maxSplits: 1).map(String.init)
+                guard parts.count == 2, let g = StyleGuide(rawValue: parts[0]) else { continue }
+                let fav = parts[1].hasSuffix("*")
+                let text = fav ? String(parts[1].dropLast()) : parts[1]
+                let out = TitleCaseEngine.apply(text, guide: g)
+                library.record(input: text, output: out, guide: g)
+                if fav, !library.isFavorite(output: out, guide: g) { library.toggleFavorite(input: text, output: out, guide: g) }
+            }
+        }
+        if let words = env["TC_DEMO_DICTIONARY"] { words.split(separator: ",").forEach { library.addWord(String($0)) } }
     }
+}
 
-    private var masthead: some View {
+// MARK: - Masthead (iPhone)
+
+struct Masthead: View {
+    var onHistory: () -> Void
+    var onSettings: () -> Void
+
+    var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            HStack(alignment: .center, spacing: Bauhaus.Space.m) {
+            HStack(alignment: .center, spacing: Bauhaus.Space.m - 4) {
                 Image("AppIconPreview")
                     .resizable()
-                    .frame(width: 56, height: 56)
+                    .frame(width: 52, height: 52)
                     .accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: -6) {
                     Text("TITLE").font(Bauhaus.Typo.display).tracking(1)
                     Text("CAPITALIZR").font(Bauhaus.Typo.display).tracking(1).foregroundStyle(Bauhaus.Palette.blue)
                 }
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
                 .accessibilityElement(children: .combine)
                 .accessibilityLabel("Title Capitalizr")
                 .accessibilityAddTraits(.isHeader)
                 Spacer(minLength: 0)
-                #if os(iOS)
-                Button {
-                    hideKeyboard()
-                    showingSettings = true
-                } label: {
-                    Image(systemName: "gearshape")
-                        .font(.system(size: 18, weight: .semibold))
-                        .frame(width: Bauhaus.tapTarget, height: Bauhaus.tapTarget)
-                        .overlay(Rectangle().stroke(Bauhaus.Palette.ink, lineWidth: Bauhaus.Rule.regular))
-                }
-                .buttonStyle(.plain)
-                .accessibilityLabel("Settings")
-                #endif
+                squareButton("clock.arrow.circlepath", "History", action: onHistory)
+                squareButton("gearshape", "Settings", action: onSettings)
             }
             .padding(.bottom, Bauhaus.Space.m - 4)
-            // Primary colour fields as a rule: red, yellow, blue.
             HStack(spacing: 0) {
                 Bauhaus.Palette.red.frame(height: Bauhaus.Rule.heavy)
                 Bauhaus.Palette.yellow.frame(height: Bauhaus.Rule.heavy)
@@ -114,257 +245,106 @@ struct ContentView: View {
         }
     }
 
-    private var footer: some View {
-        Text("Designed by John Seong")
-            .font(Bauhaus.Typo.caption)
-            .foregroundStyle(Bauhaus.Palette.inkSecondary)
-            .frame(maxWidth: .infinity, alignment: .center)
-            .padding(.top, Bauhaus.Space.m)
+    private func squareButton(_ glyph: String, _ label: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Image(systemName: glyph)
+                .font(.system(size: 18, weight: .semibold))
+                .frame(width: Bauhaus.tapTarget, height: Bauhaus.tapTarget)
+                .overlay(Rectangle().stroke(Bauhaus.Palette.ink, lineWidth: Bauhaus.Rule.regular))
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(label)
     }
 }
 
-// MARK: - Title capitalizer
+// MARK: - Sidebar (iPad, Mac)
 
-struct TitleCaseView: View {
-    @State private var titleName: String = ""
-    @State private var finalOutput: String = ""
-    @AppStorage("titleStyle") private var selectedOutputRaw = DesiredOutput.mla.rawValue
-    @State private var copied = false
+struct SidebarView: View {
+    @ObservedObject var model: EditorModel
+    @ObservedObject var library: LibraryStore
+    @ObservedObject var store: ProStore
 
-    // On-device AI (Apple Intelligence)
-    @StateObject private var smart = SmartCapitalizer()
-    @State private var smartOutput: String?
-    @State private var isSmartRunning = false
-    @State private var alternatives: [String] = []
-    @State private var isSuggesting = false
-    @State private var smartFailed = false
+    enum Item: Hashable { case workspace(Workspace), guide(StyleGuide), entry(UUID) }
 
-    // Spelling & grammar
-    @State private var issues: [GrammarIssue] = []
-    @State private var checkTask: Task<Void, Never>?
-    @State private var isReviewing = false
-    private let grammarChecker = GrammarChecker()
-    private let spellChecker = SpellChecker()
-
-    @AppStorage(SettingsKeys.aiFeaturesEnabled) private var aiFeaturesEnabled = true
-    @AppStorage(SettingsKeys.alternativesEnabled) private var alternativesEnabled = true
-    @AppStorage(SettingsKeys.grammarChecksEnabled) private var grammarChecksEnabled = true
-    @AppStorage(SettingsKeys.spellingChecksEnabled) private var spellingChecksEnabled = true
-
-    private var selectedOutput: DesiredOutput { DesiredOutput(rawValue: selectedOutputRaw) ?? .mla }
-    private var styleBinding: Binding<DesiredOutput> {
-        Binding(get: { selectedOutput }, set: { selectedOutputRaw = $0.rawValue; recompute() })
+    private var selection: Binding<Item?> {
+        Binding(get: { .workspace(model.workspace) }, set: { item in
+            switch item {
+            case .workspace(let w)?: model.workspace = w
+            case .guide(let g)?: model.workspace = .title; model.choose(g)
+            case .entry(let id)?: if let e = library.history.first(where: { $0.id == id }) { model.restore(e) }
+            case nil: break
+            }
+        })
     }
-    private var smartAvailable: Bool { aiFeaturesEnabled && smart.availability.isAvailable }
-    private var hasTitle: Bool { !titleName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
-    private var displayedOutput: String { smartOutput ?? finalOutput }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: Bauhaus.Space.l) {
-            VStack(alignment: .leading, spacing: Bauhaus.Space.s) {
-                SectionTitle("Style")
-                Segmented(options: [(DesiredOutput.mla, "MLA | Chicago"), (DesiredOutput.apa, "APA | AP")], selection: styleBinding, identifierPrefix: "style")
-            }
-            VStack(alignment: .leading, spacing: Bauhaus.Space.s) {
-                SectionTitle("Your title")
-                BoxedTextField(placeholder: "Are you going to be the next Tolkien?", text: $titleName, font: Bauhaus.Typo.font(18, relativeTo: .body))
-                    #if os(iOS)
-                    .textInputAutocapitalization(.never)
-                    #endif
-                    .onChange(of: titleName) { _ in recompute() }
-            }
-            resultSection
-            smartSection
-            issuesSection
-        }
-        .onAppear(perform: applyDemoEnvironment)
-    }
-
-    /// TC_DEMO_TITLE pre-fills the title, TC_DEMO_SMART=1 runs the AI features. Screenshots only.
-    private func applyDemoEnvironment() {
-        let env = ProcessInfo.processInfo.environment
-        if titleName.isEmpty, let demo = env["TC_DEMO_TITLE"], !demo.isEmpty { titleName = demo }
-        if env["TC_DEMO_SMART"] == "1" {
-            Task { @MainActor in
-                try? await Task.sleep(nanoseconds: 1_000_000_000)
-                runSmartCapitalize()
-                runSuggestAlternatives()
-            }
-        }
-    }
-
-    private var resultSection: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            HStack {
-                Text(smartOutput != nil ? "APPLE INTELLIGENCE | \(selectedOutput.displayName.uppercased())" : selectedOutput.displayName.uppercased())
-                    .font(Bauhaus.Typo.section).tracking(1.4)
-                Spacer()
-            }
-            .foregroundStyle(Bauhaus.Palette.ground)
-            .padding(.horizontal, Bauhaus.Space.m - 4).padding(.vertical, Bauhaus.Space.s)
-            .background(Bauhaus.Palette.ink)
-            Text(hasTitle ? displayedOutput : "Your capitalized title appears here")
-                .font(Bauhaus.Typo.result)
-                .foregroundStyle(hasTitle ? Bauhaus.Palette.ink : Bauhaus.Palette.inkSecondary)
-                .textSelection(.enabled)
-                .fixedSize(horizontal: false, vertical: true)
-                .frame(maxWidth: .infinity, minHeight: 72, alignment: .leading)
-                .padding(Bauhaus.Space.m)
-            HRule()
-            HStack(spacing: 0) {
-                Button {
-                    Platform.copyToClipboard(displayedOutput)
-                    copied = true
-                    Task { try? await Task.sleep(nanoseconds: 1_500_000_000); copied = false }
-                } label: {
-                    Label(copied ? "COPIED" : "COPY", systemImage: copied ? "checkmark" : "doc.on.doc")
-                        .font(Bauhaus.Typo.button).tracking(1)
-                        .foregroundStyle(Bauhaus.Palette.ground)
-                        .frame(maxWidth: .infinity, minHeight: Bauhaus.tapTarget)
-                        .background(hasTitle ? Bauhaus.Palette.blue : Bauhaus.Palette.inkDisabled)
-                        .contentShape(Rectangle())
+        List(selection: selection) {
+            Section {
+                ForEach(Workspace.allCases) { w in
+                    Label(w.name, systemImage: w.systemImage)
+                        .font(Bauhaus.Typo.bodyBold)
+                        .tag(Item.workspace(w))
                 }
-                .buttonStyle(.plain)
-                .disabled(!hasTitle)
-            }
-        }
-        .overlay(Rectangle().stroke(Bauhaus.Palette.ink, lineWidth: Bauhaus.Rule.regular))
-    }
+            } header: { header("Workspaces") }
 
-    @ViewBuilder
-    private var smartSection: some View {
-        if aiFeaturesEnabled {
-            VStack(alignment: .leading, spacing: Bauhaus.Space.m - 4) {
-                if smartAvailable {
-                    SectionTitle("Apple Intelligence")
-                    HStack(spacing: Bauhaus.Space.s) {
-                        BarButton(title: isSmartRunning ? "Thinking" : "Smart Capitalize", systemImage: "sparkles", kind: .primary) { runSmartCapitalize() }
-                            .disabled(!hasTitle || isSmartRunning)
-                        if alternativesEnabled {
-                            BarButton(title: isSuggesting ? "Writing" : "Suggest titles", systemImage: "text.badge.star", kind: .secondary) { runSuggestAlternatives() }
-                                .disabled(!hasTitle || isSuggesting)
-                        }
+            Section {
+                ForEach(StyleGuide.allCases) { g in
+                    HStack {
+                        Image(systemName: "checkmark")
+                            .font(.system(size: 13, weight: .bold))
+                            .foregroundStyle(Bauhaus.Palette.blue)
+                            .opacity(g == model.guide ? 1 : 0)
+                            .frame(width: 18)
+                        Text(g.displayName).font(Bauhaus.Typo.body)
+                        Spacer()
+                        if !store.isUnlocked(g) { Image(systemName: "lock").font(.caption).foregroundStyle(Bauhaus.Palette.redInk) }
                     }
-                    if smartFailed {
-                        Text("Apple Intelligence couldn't improve this title, so the standard result is shown.")
-                            .font(Bauhaus.Typo.caption).foregroundStyle(Bauhaus.Palette.inkSecondary)
-                    }
-                    if !alternatives.isEmpty {
-                        VStack(spacing: 0) {
-                            ForEach(Array(alternatives.enumerated()), id: \.offset) { i, alt in
-                                HStack(spacing: Bauhaus.Space.s) {
-                                    Text("\(i + 1)").font(Bauhaus.Typo.bodyBold).frame(width: 28, height: 28)
-                                        .background(Bauhaus.Palette.yellow)
-                                        .overlay(Rectangle().stroke(Bauhaus.Palette.ink, lineWidth: Bauhaus.Rule.regular))
-                                    Text(alt).font(Bauhaus.Typo.body).textSelection(.enabled).fixedSize(horizontal: false, vertical: true)
-                                    Spacer(minLength: 4)
-                                    Button { Platform.copyToClipboard(alt) } label: { Image(systemName: "doc.on.doc") }
-                                        .buttonStyle(.plain).accessibilityLabel("Copy")
-                                    TagButton(title: "Use") { titleName = alt }
-                                }
-                                .padding(Bauhaus.Space.m - 4)
-                                if i < alternatives.count - 1 { HRule(thickness: Bauhaus.Rule.thin) }
-                            }
-                        }
-                        .overlay(Rectangle().stroke(Bauhaus.Palette.ink, lineWidth: Bauhaus.Rule.regular))
-                    }
-                } else {
-                    Label("Apple Intelligence not available", systemImage: "sparkles")
-                        .font(Bauhaus.Typo.caption).foregroundStyle(Bauhaus.Palette.inkSecondary)
-                        .help(smart.availability.message)
+                    .tag(Item.guide(g))
+                    .accessibilityLabel(g.displayName + (store.isUnlocked(g) ? "" : ", Pro"))
                 }
-            }
-        }
-    }
+            } header: { header("Style guides") }
 
-    @ViewBuilder
-    private var issuesSection: some View {
-        if hasTitle, grammarChecksEnabled || spellingChecksEnabled {
-            VStack(alignment: .leading, spacing: Bauhaus.Space.m - 4) {
-                if issues.isEmpty {
-                    Label(isReviewing ? "Checking" : "No spelling or grammar issues found", systemImage: isReviewing ? "hourglass" : "checkmark.seal")
-                        .font(Bauhaus.Typo.body).foregroundStyle(Bauhaus.Palette.inkSecondary)
-                } else {
-                    IssuesView(issues: issues, onFix: { titleName = $0.applying(to: titleName) }, onFixAll: { titleName = issues.applyingAll(to: titleName) })
+            if !library.favorites.isEmpty {
+                Section {
+                    ForEach(library.favorites) { e in entryRow(e).tag(Item.entry(e.id)) }
+                } header: { header("Favourites") }
+            }
+
+            Section {
+                if library.recents.isEmpty {
+                    Text("Copied titles appear here.").font(Bauhaus.Typo.caption).foregroundStyle(Bauhaus.Palette.inkSecondary)
                 }
-                if smartAvailable, grammarChecksEnabled {
-                    TagButton(title: isReviewing ? "Reviewing" : "Review with Apple Intelligence", systemImage: "sparkles") { runAIReview() }
-                        .disabled(isReviewing)
-                }
+                ForEach(library.recents.prefix(40)) { e in entryRow(e).tag(Item.entry(e.id)) }
+            } header: { header("History") }
+        }
+        .listStyle(.sidebar)
+        .scrollContentBackground(.hidden)
+        .background(Bauhaus.Palette.groundSoft)
+        .navigationTitle("Title Capitalizr")
+    }
+
+    private func header(_ text: String) -> some View {
+        Text(text.uppercased()).font(Bauhaus.Typo.section).tracking(1.4).foregroundStyle(Bauhaus.Palette.ink)
+    }
+
+    private func entryRow(_ e: HistoryEntry) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(e.output).font(Bauhaus.Typo.body).lineLimit(2)
+            Text(e.guide.shortName.uppercased()).font(Bauhaus.Typo.section).tracking(1).foregroundStyle(Bauhaus.Palette.inkSecondary)
+        }
+        .draggable(e.output)
+        .contextMenu {
+            Button { Platform.copyToClipboard(e.output) } label: { Label("Copy", systemImage: "doc.on.doc") }
+            Button { library.toggleFavorite(e) } label: {
+                Label(e.favorite ? "Remove from Favourites" : "Add to Favourites", systemImage: e.favorite ? "star.slash" : "star")
             }
+            Button(role: .destructive) { library.delete(e) } label: { Label("Delete", systemImage: "trash") }
+        }
+        .swipeActions {
+            Button(role: .destructive) { library.delete(e) } label: { Label("Delete", systemImage: "trash") }
+            Button { library.toggleFavorite(e) } label: { Label("Favourite", systemImage: e.favorite ? "star.slash" : "star") }
+                .tint(Bauhaus.Palette.yellow)
         }
     }
-
-    // MARK: Logic
-
-    private func recompute() {
-        finalOutput = Capitalizer(inputLine: titleName).capitalizeTitle(selectedOutput: selectedOutput)
-        smartOutput = nil
-        smartFailed = false
-        alternatives = []
-        scheduleChecks()
-    }
-
-    private func scheduleChecks() {
-        checkTask?.cancel()
-        let text = titleName
-        guard hasTitle else { issues = []; return }
-        checkTask = Task { @MainActor in
-            try? await Task.sleep(nanoseconds: 350_000_000)
-            guard !Task.isCancelled, text == titleName else { return }
-            var found: [GrammarIssue] = []
-            if spellingChecksEnabled { found += spellChecker.check(text) }
-            if grammarChecksEnabled { found += grammarChecker.check(text) }
-            var seen = Set<String>()
-            issues = found.sorted { $0.range.location < $1.range.location }.filter { issue in
-                let key = "\(issue.range.location)-\(issue.range.length)"
-                let isSpellingDup = issue.kind == .spelling && found.contains { $0.kind != .spelling && NSIntersectionRange($0.range, issue.range).length > 0 }
-                return !isSpellingDup && seen.insert(key).inserted
-            }
-        }
-    }
-
-    private func runSmartCapitalize() {
-        hideKeyboard()
-        isSmartRunning = true
-        smartFailed = false
-        let text = titleName
-        let style = selectedOutput
-        Task { @MainActor in
-            let result = await smart.capitalize(text, style: style)
-            guard text == titleName else { isSmartRunning = false; return }
-            smartOutput = result.usedFallback ? nil : result.title
-            smartFailed = result.usedFallback
-            isSmartRunning = false
-        }
-    }
-
-    private func runSuggestAlternatives() {
-        hideKeyboard()
-        isSuggesting = true
-        let text = titleName
-        let style = selectedOutput
-        Task { @MainActor in
-            let result = await smart.suggestAlternatives(for: text, style: style)
-            guard text == titleName else { isSuggesting = false; return }
-            alternatives = result
-            isSuggesting = false
-        }
-    }
-
-    private func runAIReview() {
-        hideKeyboard()
-        isReviewing = true
-        let text = titleName
-        Task { @MainActor in
-            let suggestion = await smart.reviewGrammar(text)
-            guard text == titleName else { isReviewing = false; return }
-            if let suggestion, !issues.contains(where: { $0.kind == .aiSuggestion }) { issues.append(suggestion) }
-            isReviewing = false
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View { ContentView() }
 }

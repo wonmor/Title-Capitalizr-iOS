@@ -10,6 +10,7 @@
 //
 
 import Foundation
+import TitleCaseKit
 #if canImport(FoundationModels)
 import FoundationModels
 #endif
@@ -42,6 +43,15 @@ struct SmartCapitalizeResult: Equatable {
 struct AlternativeTitles {
     @Guide(description: "Exactly three alternative titles, each already in the requested title case", .count(3))
     var titles: [String]
+}
+
+@available(iOS 26, macOS 26, *)
+@Generable
+struct HeadlinePolish {
+    @Guide(description: "The polished headline: tighter and clearer, same meaning and facts, at most fourteen words, already in the requested title case")
+    var headline: String
+    @Guide(description: "One short sentence saying what was improved")
+    var explanation: String
 }
 
 @available(iOS 26, macOS 26, *)
@@ -94,8 +104,8 @@ final class SmartCapitalizer: ObservableObject {
 
     /// Applies the selected style guide with the on-device model. Falls back to the
     /// deterministic engine whenever the model is unavailable or anything fails.
-    func capitalize(_ title: String, style: DesiredOutput) async -> SmartCapitalizeResult {
-        let fallback = SmartCapitalizeResult(title: Capitalizer(inputLine: title).capitalizeTitle(selectedOutput: style),
+    func capitalize(_ title: String, style: StyleGuide) async -> SmartCapitalizeResult {
+        let fallback = SmartCapitalizeResult(title: TitleCaseEngine.apply(title, guide: style),
                                              usedFallback: true)
         let trimmed = title.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty, availability.isAvailable else { return fallback }
@@ -117,7 +127,7 @@ final class SmartCapitalizer: ObservableObject {
     }
 
     /// Three alternative titles in the selected style, or an empty array when the model is unavailable.
-    func suggestAlternatives(for title: String, style: DesiredOutput) async -> [String] {
+    func suggestAlternatives(for title: String, style: StyleGuide) async -> [String] {
         let trimmed = title.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty, availability.isAvailable else { return [] }
         #if canImport(FoundationModels)
@@ -127,7 +137,7 @@ final class SmartCapitalizer: ObservableObject {
                     You are an editor who proposes alternative titles for essays, articles and papers. \
                     Keep the subject and tone of the original. Each alternative must be a complete title of at most twelve words, \
                     different in wording from the original and from each other. \
-                    Write every alternative using \(style.styleGuideDescription)
+                    Write every alternative using \(Self.describe(style))
                     """)
                 let response = try await session.respond(to: "Original title: \(trimmed)",
                                                          generating: AlternativeTitles.self,
@@ -174,11 +184,95 @@ final class SmartCapitalizer: ObservableObject {
         return nil
     }
 
+    // MARK: Headline polish and grammar fix (Pro)
+
+    enum Outcome: Equatable {
+        case suggestion(text: String, note: String)
+        case unchanged
+        case unavailable(String)
+        case failed(String)
+    }
+
+    /// Rewrites a headline to be tighter and clearer, then re-cases it with the rule engine so the
+    /// chosen guide is always applied exactly.
+    func polishHeadline(_ title: String, style: StyleGuide, dictionary: CustomDictionary = .init()) async -> Outcome {
+        let trimmed = title.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return .unchanged }
+        guard availability.isAvailable else { return .unavailable(availability.message) }
+        #if canImport(FoundationModels)
+        if #available(iOS 26, macOS 26, *) {
+            do {
+                let session = LanguageModelSession(instructions: """
+                    You are a headline editor. Make the headline you are given tighter, clearer and more specific \
+                    without changing its meaning, facts, names or numbers, and without clickbait. \
+                    Prefer active verbs and concrete nouns. Keep proper nouns, brands and acronyms exactly as written. \
+                    Write the result using \(Self.describe(style))
+                    """)
+                let response = try await session.respond(to: "Headline: \(trimmed)", generating: HeadlinePolish.self,
+                                                         options: GenerationOptions(temperature: 0.4))
+                let raw = Self.clean(response.content.headline)
+                guard !raw.isEmpty else { return .failed("Apple Intelligence returned an empty headline.") }
+                let cased = TitleCaseEngine.apply(raw, guide: style, dictionary: dictionary)
+                if cased == TitleCaseEngine.apply(trimmed, guide: style, dictionary: dictionary) { return .unchanged }
+                return .suggestion(text: cased, note: response.content.explanation.trimmingCharacters(in: .whitespacesAndNewlines))
+            } catch {
+                return .failed(Self.describe(error))
+            }
+        }
+        #endif
+        return .unavailable(availability.message)
+    }
+
+    /// Corrects spelling and grammar only, then re-cases with the rule engine.
+    func fixGrammar(_ title: String, style: StyleGuide, dictionary: CustomDictionary = .init()) async -> Outcome {
+        let trimmed = title.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return .unchanged }
+        guard availability.isAvailable else { return .unavailable(availability.message) }
+        #if canImport(FoundationModels)
+        if #available(iOS 26, macOS 26, *) {
+            do {
+                let session = LanguageModelSession(instructions: """
+                    You are a careful copy editor. Correct only spelling, subject-verb agreement, articles (a/an), \
+                    doubled words, missing apostrophes and wrong word forms in the text you are given. Never change \
+                    word choice, word order or meaning. If it is already correct, return it unchanged with an empty explanation.
+                    """)
+                let response = try await session.respond(to: "Text: \(trimmed)", generating: GrammarReview.self,
+                                                         options: GenerationOptions(temperature: 0.0))
+                let corrected = Self.clean(response.content.correctedTitle)
+                guard !corrected.isEmpty, corrected.lowercased() != trimmed.lowercased() else { return .unchanged }
+                let cased = TitleCaseEngine.apply(corrected, guide: style, dictionary: dictionary)
+                return .suggestion(text: cased, note: response.content.explanation.trimmingCharacters(in: .whitespacesAndNewlines))
+            } catch {
+                return .failed(Self.describe(error))
+            }
+        }
+        #endif
+        return .unavailable(availability.message)
+    }
+
+    nonisolated static func describe(_ error: Error) -> String {
+        #if canImport(FoundationModels)
+        if #available(iOS 26, macOS 26, *), let e = error as? LanguageModelSession.GenerationError {
+            switch e {
+            case .guardrailViolation: return "Apple Intelligence declined this text."
+            case .exceededContextWindowSize: return "The text is too long for Apple Intelligence."
+            case .unsupportedLanguageOrLocale: return "Apple Intelligence doesn't support this language yet."
+            default: break
+            }
+        }
+        #endif
+        return "Apple Intelligence couldn't finish: \(error.localizedDescription)"
+    }
+
     // MARK: Helpers
 
-    nonisolated static func capitalizeInstructions(style: DesiredOutput) -> String {
+    nonisolated static func describe(_ style: StyleGuide) -> String {
+        "\(style.displayName) rules: \(style.summary)"
+    }
+
+    nonisolated static func capitalizeInstructions(style: StyleGuide) -> String {
         """
-        You convert a single title into title case. Apply \(style.styleGuideDescription) \
+        You convert a single title into title case. Apply \(Self.describe(style)) \
         Keep proper nouns, brand names and acronyms exactly as they are normally written (for example NASA, iPhone, macOS, eBay, McDonald's). \
         In hyphenated compounds capitalize each part that would be capitalized on its own (Self-Esteem, Follow-Up) but not articles or prepositions after the hyphen. \
         A subtitle after a colon, em dash or question mark starts with a capital letter. \

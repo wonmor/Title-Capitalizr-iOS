@@ -22,6 +22,22 @@ enum Platform {
         #endif
     }
 
+    static func clipboardString() -> String? {
+        #if os(macOS)
+        return NSPasteboard.general.string(forType: .string)
+        #else
+        return UIPasteboard.general.string
+        #endif
+    }
+
+    static var isPad: Bool {
+        #if os(iOS)
+        return UIDevice.current.userInterfaceIdiom == .pad
+        #else
+        return false
+        #endif
+    }
+
     static var isMac: Bool {
         #if os(macOS)
         return true
@@ -46,4 +62,5 @@ enum SettingsKeys {
     static let alternativesEnabled = "alternativesEnabled"
     static let grammarChecksEnabled = "grammarChecksEnabled"
     static let spellingChecksEnabled = "spellingChecksEnabled"
+    static let whyPanelEnabled = "whyPanelEnabled"
 }

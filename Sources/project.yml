@@ -3,8 +3,8 @@ options:
   bundleIdPrefix: com.johnseong
   xcodeVersion: "27.0"
   deploymentTarget:
-    iOS: "16.0"
-    macOS: "13.0"
+    iOS: "17.0"
+    macOS: "14.0"
   createIntermediateGroups: true
   generateEmptyDirectories: true
 settings:
@@ -13,16 +13,25 @@ settings:
     DEVELOPMENT_TEAM: Z64KRUX3W3
     CODE_SIGN_STYLE: Automatic
     MARKETING_VERSION: "1.7"
-    CURRENT_PROJECT_VERSION: 4
+    CURRENT_PROJECT_VERSION: 5
+packages:
+  TitleCaseKit:
+    path: TitleCaseKit
 targets:
   Title Capitalizr:
     type: application
     supportedDestinations: [iOS, macOS]
     sources:
       - path: Title Capitalizr
-        excludes: ["Title Capitalizr.entitlements", "Info.plist"]
+        excludes: ["Title Capitalizr.entitlements", "Title Capitalizr-iOS.entitlements", "Info.plist"]
+      - path: Shared
       - path: StoreKit/TitleCapitalizr.storekit
         buildPhase: none
+    dependencies:
+      - package: TitleCaseKit
+      - target: Title Capitalizr Share
+        destinationFilters: [iOS]
+      - target: Title Capitalizr Widgets
     info:
       path: Title Capitalizr/Info.plist
       properties:
@@ -34,12 +43,15 @@ targets:
         LSApplicationCategoryType: public.app-category.productivity
         NSHumanReadableCopyright: Copyright © 2026 John Seong. All rights reserved.
         UIApplicationSceneManifest:
-          UIApplicationSupportsMultipleScenes: false
+          UIApplicationSupportsMultipleScenes: true
           UISceneConfigurations: {}
         UIApplicationSupportsIndirectInputEvents: true
         UILaunchScreen: {}
         LSSupportsOpeningDocumentsInPlace: true
         LSApplicationQueriesSchemes: [googledocs]
+        CFBundleURLTypes:
+          - CFBundleURLName: com.johnseong.titlecapitalizr
+            CFBundleURLSchemes: [titlecapitalizr]
         CFBundleDocumentTypes:
           - CFBundleTypeName: Essay
             CFBundleTypeRole: Viewer
@@ -49,27 +61,106 @@ targets:
               - com.adobe.pdf
               - public.rtf
               - public.plain-text
+        NSServices:
+          - NSMenuItem:
+              default: Title Case with Title Capitalizr
+            NSMessage: titleCaseService
+            NSPortName: Title Capitalizr
+            NSSendTypes: [NSStringPboardType, public.utf8-plain-text]
+            NSReturnTypes: [NSStringPboardType, public.utf8-plain-text]
+            NSRequiredContext: {}
+          - NSMenuItem:
+              default: Open in Title Capitalizr
+            NSMessage: openService
+            NSPortName: Title Capitalizr
+            NSSendTypes: [NSStringPboardType, public.utf8-plain-text]
+            NSRequiredContext: {}
         UISupportedInterfaceOrientations~iphone: [UIInterfaceOrientationPortrait]
         UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.johnseong.titlecapitalizr
         PRODUCT_NAME: Title Capitalizr
-        TARGETED_DEVICE_FAMILY: "1"
+        TARGETED_DEVICE_FAMILY: "1,2"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         DEVELOPMENT_ASSET_PATHS: '"Title Capitalizr/Preview Content"'
         ENABLE_PREVIEWS: true
         "CODE_SIGN_ENTITLEMENTS[sdk=macosx*]": Title Capitalizr/Title Capitalizr.entitlements
+        "CODE_SIGN_ENTITLEMENTS[sdk=iphone*]": Title Capitalizr/Title Capitalizr-iOS.entitlements
         "ENABLE_HARDENED_RUNTIME[sdk=macosx*]": true
         OTHER_LDFLAGS: "-weak_framework FoundationModels"
         SWIFT_EMIT_LOC_STRINGS: true
+  Title Capitalizr Share:
+    type: app-extension
+    supportedDestinations: [iOS]
+    sources:
+      - path: ShareExtension
+        excludes: ["ShareExtension.entitlements"]
+      - path: Shared
+      - path: Title Capitalizr/Design/Bauhaus.swift
+      - path: Title Capitalizr/Resources/Fonts
+        buildPhase: resources
+    dependencies:
+      - package: TitleCaseKit
+    info:
+      path: ShareExtension/Info.plist
+      properties:
+        CFBundleDisplayName: Title Capitalizr
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.share-services
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShareViewController
+          NSExtensionAttributes:
+            NSExtensionActivationRule:
+              NSExtensionActivationSupportsText: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.johnseong.titlecapitalizr.share
+        PRODUCT_NAME: Title Capitalizr Share
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGN_ENTITLEMENTS: ShareExtension/ShareExtension.entitlements
+        SKIP_INSTALL: true
+  Title Capitalizr Widgets:
+    type: app-extension
+    supportedDestinations: [iOS, macOS]
+    sources:
+      - path: Widgets
+        excludes: ["*.entitlements"]
+      - path: Shared
+      - path: Title Capitalizr/Resources/Fonts
+        buildPhase: resources
+    dependencies:
+      - package: TitleCaseKit
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+    info:
+      path: Widgets/Info.plist
+      properties:
+        CFBundleDisplayName: Title Capitalizr
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UIAppFonts: ["Jost[wght].ttf", "Jost-Italic[wght].ttf"]
+        ATSApplicationFontsPath: "."
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.johnseong.titlecapitalizr.widgets
+        PRODUCT_NAME: Title Capitalizr Widgets
+        TARGETED_DEVICE_FAMILY: "1,2"
+        "CODE_SIGN_ENTITLEMENTS[sdk=macosx*]": Widgets/Widgets-mac.entitlements
+        "CODE_SIGN_ENTITLEMENTS[sdk=iphone*]": Widgets/Widgets-iOS.entitlements
+        "ENABLE_HARDENED_RUNTIME[sdk=macosx*]": true
+        SKIP_INSTALL: true
   Title CapitalizrTests:
     type: bundle.unit-test
     supportedDestinations: [iOS, macOS]
     sources: [Title CapitalizrTests]
     dependencies:
       - target: Title Capitalizr
+      - package: TitleCaseKit
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.johnseong.titlecapitalizr.tests

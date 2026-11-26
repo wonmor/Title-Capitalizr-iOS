@@ -10,40 +10,76 @@
 		0614AC284D8390E0A06843A0 /* Title_CapitalizrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FE4E94407897CF8105471D /* Title_CapitalizrApp.swift */; };
 		0C2237A2E91CA21161CB8919 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41305D902D8FB07478F6FA8 /* SettingsView.swift */; };
 		19616CD2C2A547714779FC79 /* IssuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514839818DAE81572890F6D /* IssuesView.swift */; };
+		196F7D79D2CFF05CBEBDB13E /* Jost-Italic[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE807FF222A34758C13AA6A2 /* Jost-Italic[wght].ttf */; };
+		1A49773F239E372199E2347D /* TitleWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249B6003907A17EEB6FC1F6D /* TitleWidgets.swift */; };
+		2442CE4575089FD569B736C5 /* TitleCaseKit in Frameworks */ = {isa = PBXBuildFile; productRef = C5E12EABB2C341F43D52652A /* TitleCaseKit */; };
+		26B65B6BE701E865D6013E4C /* Title Capitalizr Share.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5860D01F5810FB8C2F9998D5 /* Title Capitalizr Share.appex */; platformFilters = (ios, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2B36A7A493D5C9A317DE89C5 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7898620118B0E63F0449C4 /* Zip.swift */; };
 		2CB252EE7C2C5F5E8AA02A6F /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7B14CE622E5EB627B39F6224 /* OFL.txt */; };
+		30A7054324C1D6C15B39504C /* OrchestrLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BF28C60A6E2BCBC379ED49 /* OrchestrLink.swift */; };
+		31320E2462D8D6CA6301AB1E /* Title Capitalizr Widgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E11D46749B397B21D5B5B04E /* Title Capitalizr Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3357F3C584430978133A3977 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188DC45FFFD60FE6799F968B /* Models.swift */; };
+		39014C5EE6FD44A94628862C /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9495B026D0EDE07F10C155 /* ShareViewController.swift */; };
+		3D6E89260F09CFB1F82F5212 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1174839722CBADB4D8018636 /* WidgetKit.framework */; };
+		3D9EDE2DEDAE868C2E7E1478 /* Jost[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AF67916AF3A7C3A0B720E91 /* Jost[wght].ttf */; };
 		3E048D28417C0DA5AC8DFF22 /* PlatformExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AE209977D766F8AF18F901 /* PlatformExport.swift */; };
+		407BD921602D12604A557DF8 /* TitleCaseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9428AE37329721A73A3177EC /* TitleCaseKit */; };
 		41A027C4A358FBD82709F14E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE3FBB9A739C804E52B4324 /* Preview Assets.xcassets */; };
 		45CFE9FB6BF68FB3D3C4DF4F /* Jost-Italic[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE807FF222A34758C13AA6A2 /* Jost-Italic[wght].ttf */; };
+		498C989E77076954C00FDB97 /* TitleCaseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7CB675E6E373B84D7C76926D /* TitleCaseKit */; };
 		4A5BC263DCDD8CCD9A7A393B /* EssayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2298DDD6FD57A039D7401D1E /* EssayModel.swift */; };
 		51FDE3FAC50BD3FDE8BBDB7E /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2AAA27A42967613DBA4CC9 /* PaywallView.swift */; };
 		53790E05CD8867E90BAB62FB /* DocxReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3433D55D874E9C93132F4 /* DocxReader.swift */; };
 		53A5851FF9E450132F2ECA10 /* GrammarChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06DFD88BEA3A9E86A4A7418 /* GrammarChecker.swift */; };
 		591F2E8197513C9DC6412378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B58986E3E441C1B6316844C /* Assets.xcassets */; };
+		596CC7DEE919C72596CC33BF /* TitleCaseKit in Frameworks */ = {isa = PBXBuildFile; productRef = D52D0C36B5EA3877FC937502 /* TitleCaseKit */; };
+		5E9F475BDC7571B18E549535 /* LibraryViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436B779AA547E50D98CAD46 /* LibraryViews.swift */; };
 		64893D6B2ECC83219258E7B7 /* EssayAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34973016D8819DD569C4A02A /* EssayAssistant.swift */; };
 		6529E17EC079C35197253EA7 /* DocxWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62109D8F529297F0303E3CF5 /* DocxWriter.swift */; };
 		68E7CE23143A2780520DB77F /* EssayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51167D490129300B8A1AA9C /* EssayView.swift */; };
+		7AF0DC2E66FA69AB10290825 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7B14CE622E5EB627B39F6224 /* OFL.txt */; };
 		7BD884318760058902059F72 /* EssayExporters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FD36040497B92DB46F251 /* EssayExporters.swift */; };
+		812D7AE92137B241C83133EC /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F925A082FF26A484408E2 /* AppModel.swift */; };
 		85642B1CC4B13E9F8E79242D /* SpellChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D93D8C12642880BB5C8E68 /* SpellChecker.swift */; };
+		85E7BAF015EBAA52227EBAE8 /* OrchestrToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96725E12156A5CB5E83C3B94 /* OrchestrToken.swift */; };
+		8A37F100769B70EDF84AE30C /* Bauhaus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDBA62022E12018925A4559 /* Bauhaus.swift */; };
 		8D4DD7B98AC5347F993A9F1D /* Title_CapitalizrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C66897AAF4C37847BC9270 /* Title_CapitalizrTests.swift */; };
 		9183515FD330A141A898100F /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A61AADD61D65D3BF1154BB /* Platform.swift */; };
 		9C6DB8CD319F33EE6706159A /* GoogleDocsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBB224CD1B832BF5C71EB05 /* GoogleDocsFetcher.swift */; };
 		9E2D2AC3DCA08AE83C39C888 /* sample-essay.docx in Resources */ = {isa = PBXBuildFile; fileRef = 3A15D8CBF69E6576FAA0E78C /* sample-essay.docx */; };
+		A080326B9963F8CA01FBE1BD /* OrchestrAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B890BE171F8FC113E248C /* OrchestrAccess.swift */; };
+		ACF9FAE2DC7EDBFF8E2269EF /* TitleIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2733C5D1EF4F351194385780 /* TitleIntents.swift */; };
 		B09D8494C1B9733F5FA277A2 /* EssayWorkspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C59E72B4EBC94B3418CFA /* EssayWorkspace.swift */; };
 		B4070D702C2B788117BEA5F6 /* EssayFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516DC3625409C03C8733E1EC /* EssayFormatter.swift */; };
+		B69BD447A657C4C176D6DCED /* TitleWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE8F38080C72CAEF36C93 /* TitleWorkspaceView.swift */; };
+		B8EBC39F9CEA1878B445D08A /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7B14CE622E5EB627B39F6224 /* OFL.txt */; };
 		BED6128C2878FBBE26F258B0 /* SmartCapitalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54766E505C7663BDD18F666B /* SmartCapitalizer.swift */; };
 		BF302E3301DE41A34290E590 /* TextReaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3BD5DE013F3865A8C5030C /* TextReaders.swift */; };
+		C154218E54EB4BA6908AB5A2 /* AppModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BA05A4A23A67DD4BA50B94 /* AppModelTests.swift */; };
 		C600EDC0EE0408906AA14E1F /* EssayFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2B40EB1A48DCF2127E9BA /* EssayFormatterTests.swift */; };
 		C7A7E1A9EF3ED885A59FB73F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2503075B3E87CD22496871F /* ContentView.swift */; };
+		CAF9855506E7839B159F5234 /* SharedVault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B957B84C836FF7F39EBB010 /* SharedVault.swift */; };
 		D7842EB4A36E9E152E074BC0 /* Jost[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AF67916AF3A7C3A0B720E91 /* Jost[wght].ttf */; };
 		D7E055D11A1535C310AB299B /* EssayAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2752DC13C76D91016E4C1EA2 /* EssayAnalyzer.swift */; };
+		DBC0A5245BDBA2F9C7DD4D6F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B48C7935422401D99ADAE9 /* SwiftUI.framework */; };
 		E618D3309ED7ECCB7109446D /* ProStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B4900E8D6ABBFDF4F7AE5D /* ProStore.swift */; };
+		E6553A418ECF2315AAB1B256 /* SharedVault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B957B84C836FF7F39EBB010 /* SharedVault.swift */; };
+		E9C7D4D589D3BF555E97A363 /* Jost-Italic[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE807FF222A34758C13AA6A2 /* Jost-Italic[wght].ttf */; };
+		F0BF90C893119EF9D4598FBC /* BatchToolsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442BBF06DB1FD57F9238649C /* BatchToolsViews.swift */; };
+		F30B52957D79B9C31BBBCA25 /* Jost[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AF67916AF3A7C3A0B720E91 /* Jost[wght].ttf */; };
+		F30CB879C6537C83A68AAEB6 /* SharedVault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B957B84C836FF7F39EBB010 /* SharedVault.swift */; };
 		F8163AF50B22843029CFE137 /* Bauhaus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDBA62022E12018925A4559 /* Bauhaus.swift */; };
 		FF296D76C556911A3093E238 /* GrammarIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D9A4156453C379AC4D9EA4 /* GrammarIssue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4A1520803AEBED47FC07E864 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A4DA2FC686A77B9B8068C95 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BE25DAC01E248D6077E61C1;
+			remoteInfo = "Title Capitalizr Widgets";
+		};
 		88ADBB3A7DE17B0E6AE9C53C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3A4DA2FC686A77B9B8068C95 /* Project object */;
@@ -51,32 +87,69 @@
 			remoteGlobalIDString = 33457571BE31395E979D1403;
 			remoteInfo = "Title Capitalizr";
 		};
+		E94F028DAE3DB1AF897324E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A4DA2FC686A77B9B8068C95 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D188C9A5275D3B02BF75DC7;
+			remoteInfo = "Title Capitalizr Share";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		89652B9A30C3CE58EDBDD933 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				26B65B6BE701E865D6013E4C /* Title Capitalizr Share.appex in Embed Foundation Extensions */,
+				31320E2462D8D6CA6301AB1E /* Title Capitalizr Widgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0BDBA62022E12018925A4559 /* Bauhaus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bauhaus.swift; sourceTree = "<group>"; };
+		0C3F925A082FF26A484408E2 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		1174839722CBADB4D8018636 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		180C59E72B4EBC94B3418CFA /* EssayWorkspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayWorkspace.swift; sourceTree = "<group>"; };
 		188DC45FFFD60FE6799F968B /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		1B58986E3E441C1B6316844C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2298DDD6FD57A039D7401D1E /* EssayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayModel.swift; sourceTree = "<group>"; };
+		249B6003907A17EEB6FC1F6D /* TitleWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleWidgets.swift; sourceTree = "<group>"; };
 		24D9A4156453C379AC4D9EA4 /* GrammarIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarIssue.swift; sourceTree = "<group>"; };
 		2514839818DAE81572890F6D /* IssuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesView.swift; sourceTree = "<group>"; };
+		2733C5D1EF4F351194385780 /* TitleIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleIntents.swift; sourceTree = "<group>"; };
 		2752DC13C76D91016E4C1EA2 /* EssayAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayAnalyzer.swift; sourceTree = "<group>"; };
 		2C2AAA27A42967613DBA4CC9 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		34973016D8819DD569C4A02A /* EssayAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayAssistant.swift; sourceTree = "<group>"; };
 		35AE209977D766F8AF18F901 /* PlatformExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformExport.swift; sourceTree = "<group>"; };
+		36C838B0D9BBA0E726621926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3A15D8CBF69E6576FAA0E78C /* sample-essay.docx */ = {isa = PBXFileReference; path = "sample-essay.docx"; sourceTree = "<group>"; };
 		3AF67916AF3A7C3A0B720E91 /* Jost[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost[wght].ttf"; sourceTree = "<group>"; };
 		3C7898620118B0E63F0449C4 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
+		43B48C7935422401D99ADAE9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		442BBF06DB1FD57F9238649C /* BatchToolsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchToolsViews.swift; sourceTree = "<group>"; };
+		4B5DBC6D787D002AE459104D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4D3BD5DE013F3865A8C5030C /* TextReaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextReaders.swift; sourceTree = "<group>"; };
 		516DC3625409C03C8733E1EC /* EssayFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayFormatter.swift; sourceTree = "<group>"; };
 		54766E505C7663BDD18F666B /* SmartCapitalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCapitalizer.swift; sourceTree = "<group>"; };
+		5860D01F5810FB8C2F9998D5 /* Title Capitalizr Share.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = "Title Capitalizr Share.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		595B890BE171F8FC113E248C /* OrchestrAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchestrAccess.swift; sourceTree = "<group>"; };
 		5CBB224CD1B832BF5C71EB05 /* GoogleDocsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDocsFetcher.swift; sourceTree = "<group>"; };
 		61B2B40EB1A48DCF2127E9BA /* EssayFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayFormatterTests.swift; sourceTree = "<group>"; };
 		62109D8F529297F0303E3CF5 /* DocxWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocxWriter.swift; sourceTree = "<group>"; };
 		70C66897AAF4C37847BC9270 /* Title_CapitalizrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title_CapitalizrTests.swift; sourceTree = "<group>"; };
 		76F6106808C270EE1761604F /* Title CapitalizrTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = "Title CapitalizrTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B14CE622E5EB627B39F6224 /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		7B957B84C836FF7F39EBB010 /* SharedVault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedVault.swift; sourceTree = "<group>"; };
+		87BF28C60A6E2BCBC379ED49 /* OrchestrLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchestrLink.swift; sourceTree = "<group>"; };
+		93CAE8F38080C72CAEF36C93 /* TitleWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleWorkspaceView.swift; sourceTree = "<group>"; };
+		95BA05A4A23A67DD4BA50B94 /* AppModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelTests.swift; sourceTree = "<group>"; };
+		96725E12156A5CB5E83C3B94 /* OrchestrToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchestrToken.swift; sourceTree = "<group>"; };
 		9FE3FBB9A739C804E52B4324 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A1FE4E94407897CF8105471D /* Title_CapitalizrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title_CapitalizrApp.swift; sourceTree = "<group>"; };
 		A4D93D8C12642880BB5C8E68 /* SpellChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellChecker.swift; sourceTree = "<group>"; };
@@ -86,17 +159,59 @@
 		C41305D902D8FB07478F6FA8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C9B4900E8D6ABBFDF4F7AE5D /* ProStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProStore.swift; sourceTree = "<group>"; };
 		CE807FF222A34758C13AA6A2 /* Jost-Italic[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jost-Italic[wght].ttf"; sourceTree = "<group>"; };
+		D436B779AA547E50D98CAD46 /* LibraryViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViews.swift; sourceTree = "<group>"; };
 		D6C3433D55D874E9C93132F4 /* DocxReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocxReader.swift; sourceTree = "<group>"; };
+		E11D46749B397B21D5B5B04E /* Title Capitalizr Widgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = "Title Capitalizr Widgets.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED4FD36040497B92DB46F251 /* EssayExporters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayExporters.swift; sourceTree = "<group>"; };
 		F06DFD88BEA3A9E86A4A7418 /* GrammarChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarChecker.swift; sourceTree = "<group>"; };
 		F2503075B3E87CD22496871F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F51167D490129300B8A1AA9C /* EssayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssayView.swift; sourceTree = "<group>"; };
+		FDFE27C04F1EAA3DD5544C68 /* TitleCaseKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TitleCaseKit; path = TitleCaseKit; sourceTree = SOURCE_ROOT; };
+		FE9495B026D0EDE07F10C155 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1E3DBC5ABA65018871B8CF1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407BD921602D12604A557DF8 /* TitleCaseKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D89505EEBEBEDA8BF4D6B91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596CC7DEE919C72596CC33BF /* TitleCaseKit in Frameworks */,
+				3D6E89260F09CFB1F82F5212 /* WidgetKit.framework in Frameworks */,
+				DBC0A5245BDBA2F9C7DD4D6F /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8143631274C1DBB936A61D6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				498C989E77076954C00FDB97 /* TitleCaseKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC9F8CB4539D8B65EE5E4A6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2442CE4575089FD569B736C5 /* TitleCaseKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		0CC93197E19B056FCD194A00 /* Title Capitalizr */ = {
 			isa = PBXGroup;
 			children = (
+				0C3F925A082FF26A484408E2 /* AppModel.swift */,
 				1B58986E3E441C1B6316844C /* Assets.xcassets */,
 				188DC45FFFD60FE6799F968B /* Models.swift */,
 				A1FE4E94407897CF8105471D /* Title_CapitalizrApp.swift */,
@@ -104,6 +219,8 @@
 				26F5E68955B09E4F6A7B85EA /* Design */,
 				A0910FA33C5566DC68FA4A8C /* Essay */,
 				998EFCA2E4858720CF113321 /* Grammar */,
+				4B6D20374673BE400C5996BC /* Intents */,
+				52CD2D7F3583F6ACC1AC319F /* OrchestrLink */,
 				CC929FC5EBBAA44032226320 /* Preview Content */,
 				EB30F5AEAA6AEDABAE32162C /* Resources */,
 				A1E9E16C08D8EE1875729772 /* Store */,
@@ -113,12 +230,29 @@
 			path = "Title Capitalizr";
 			sourceTree = "<group>";
 		};
+		1E477C62DB52DC499718E957 /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				36C838B0D9BBA0E726621926 /* Info.plist */,
+				FE9495B026D0EDE07F10C155 /* ShareViewController.swift */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
 		26F5E68955B09E4F6A7B85EA /* Design */ = {
 			isa = PBXGroup;
 			children = (
 				0BDBA62022E12018925A4559 /* Bauhaus.swift */,
 			);
 			path = Design;
+			sourceTree = "<group>";
+		};
+		2C3612A2AEFDD84415D40D33 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				7B957B84C836FF7F39EBB010 /* SharedVault.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		2EAB4AB7D3AD8993447AEF1F /* Fixtures */ = {
@@ -132,20 +266,58 @@
 		2F01858BA681859EB9F19A22 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				5860D01F5810FB8C2F9998D5 /* Title Capitalizr Share.appex */,
+				E11D46749B397B21D5B5B04E /* Title Capitalizr Widgets.appex */,
 				BBABD6A8D3B311B9E85B7789 /* Title Capitalizr.app */,
 				76F6106808C270EE1761604F /* Title CapitalizrTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+		48D2544DCB13A215C537A1A3 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				FDFE27C04F1EAA3DD5544C68 /* TitleCaseKit */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		4B6D20374673BE400C5996BC /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				2733C5D1EF4F351194385780 /* TitleIntents.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
 		5172E06B40E1E4E054CC04BF /* Title CapitalizrTests */ = {
 			isa = PBXGroup;
 			children = (
+				95BA05A4A23A67DD4BA50B94 /* AppModelTests.swift */,
 				61B2B40EB1A48DCF2127E9BA /* EssayFormatterTests.swift */,
 				70C66897AAF4C37847BC9270 /* Title_CapitalizrTests.swift */,
 				2EAB4AB7D3AD8993447AEF1F /* Fixtures */,
 			);
 			path = "Title CapitalizrTests";
+			sourceTree = "<group>";
+		};
+		52CD2D7F3583F6ACC1AC319F /* OrchestrLink */ = {
+			isa = PBXGroup;
+			children = (
+				595B890BE171F8FC113E248C /* OrchestrAccess.swift */,
+				87BF28C60A6E2BCBC379ED49 /* OrchestrLink.swift */,
+				96725E12156A5CB5E83C3B94 /* OrchestrToken.swift */,
+			);
+			path = OrchestrLink;
+			sourceTree = "<group>";
+		};
+		7A4A06B024E48572C3AEF577 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				4B5DBC6D787D002AE459104D /* Info.plist */,
+				249B6003907A17EEB6FC1F6D /* TitleWidgets.swift */,
+			);
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 		81CEDB4E8819729AC5B0C643 /* Support */ = {
@@ -212,9 +384,14 @@
 		B6B15857C816C6B40CF28DF3 = {
 			isa = PBXGroup;
 			children = (
+				48D2544DCB13A215C537A1A3 /* Packages */,
+				2C3612A2AEFDD84415D40D33 /* Shared */,
+				1E477C62DB52DC499718E957 /* ShareExtension */,
 				D10A0496BA36E798B10F686A /* StoreKit */,
 				0CC93197E19B056FCD194A00 /* Title Capitalizr */,
 				5172E06B40E1E4E054CC04BF /* Title CapitalizrTests */,
+				7A4A06B024E48572C3AEF577 /* Widgets */,
+				DE99C3D860245DCA7943A4AB /* Frameworks */,
 				2F01858BA681859EB9F19A22 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -222,10 +399,13 @@
 		C442FE4645689A2968229C09 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				442BBF06DB1FD57F9238649C /* BatchToolsViews.swift */,
 				F2503075B3E87CD22496871F /* ContentView.swift */,
 				2514839818DAE81572890F6D /* IssuesView.swift */,
+				D436B779AA547E50D98CAD46 /* LibraryViews.swift */,
 				2C2AAA27A42967613DBA4CC9 /* PaywallView.swift */,
 				C41305D902D8FB07478F6FA8 /* SettingsView.swift */,
+				93CAE8F38080C72CAEF36C93 /* TitleWorkspaceView.swift */,
 				8A570460DCD5F24AE7AFB82A /* Essay */,
 			);
 			path = Views;
@@ -257,6 +437,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		DE99C3D860245DCA7943A4AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43B48C7935422401D99ADAE9 /* SwiftUI.framework */,
+				1174839722CBADB4D8018636 /* WidgetKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EB30F5AEAA6AEDABAE32162C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,12 +457,33 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0BE25DAC01E248D6077E61C1 /* Title Capitalizr Widgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A457AA2AF2967102675FA5C /* Build configuration list for PBXNativeTarget "Title Capitalizr Widgets" */;
+			buildPhases = (
+				7EB25F1A4D5994BCB8221B96 /* Sources */,
+				81EA86E0879DCC3DF05EFB20 /* Resources */,
+				3D89505EEBEBEDA8BF4D6B91 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Title Capitalizr Widgets";
+			packageProductDependencies = (
+				D52D0C36B5EA3877FC937502 /* TitleCaseKit */,
+			);
+			productName = "Title Capitalizr Widgets";
+			productReference = E11D46749B397B21D5B5B04E /* Title Capitalizr Widgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		244C95388DCEF89F03664D0E /* Title CapitalizrTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60EDBBED89AD726AF9FF6C95 /* Build configuration list for PBXNativeTarget "Title CapitalizrTests" */;
 			buildPhases = (
 				F55086B52E0943097B847853 /* Sources */,
 				AAF287FE032D23C2D7F47E18 /* Resources */,
+				8143631274C1DBB936A61D6F /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -282,6 +492,7 @@
 			);
 			name = "Title CapitalizrTests";
 			packageProductDependencies = (
+				7CB675E6E373B84D7C76926D /* TitleCaseKit */,
 			);
 			productName = "Title CapitalizrTests";
 			productReference = 76F6106808C270EE1761604F /* Title CapitalizrTests.xctest */;
@@ -293,17 +504,42 @@
 			buildPhases = (
 				0A6678A41C1A69DEBAF29E6C /* Sources */,
 				B0E4A3B7C8349480F8E5A9BF /* Resources */,
+				DC9F8CB4539D8B65EE5E4A6C /* Frameworks */,
+				89652B9A30C3CE58EDBDD933 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD81990D9B1CF9414456D8FA /* PBXTargetDependency */,
+				F0B05868356A46E80DCC6D6C /* PBXTargetDependency */,
+			);
+			name = "Title Capitalizr";
+			packageProductDependencies = (
+				C5E12EABB2C341F43D52652A /* TitleCaseKit */,
+			);
+			productName = "Title Capitalizr";
+			productReference = BBABD6A8D3B311B9E85B7789 /* Title Capitalizr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9D188C9A5275D3B02BF75DC7 /* Title Capitalizr Share */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B62C56B2ACB5F989FF4CEC0 /* Build configuration list for PBXNativeTarget "Title Capitalizr Share" */;
+			buildPhases = (
+				C7C0914AD8B48AE5B4B5932C /* Sources */,
+				031493372F2CADEEAF167362 /* Resources */,
+				1E3DBC5ABA65018871B8CF1C /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Title Capitalizr";
+			name = "Title Capitalizr Share";
 			packageProductDependencies = (
+				9428AE37329721A73A3177EC /* TitleCaseKit */,
 			);
-			productName = "Title Capitalizr";
-			productReference = BBABD6A8D3B311B9E85B7789 /* Title Capitalizr.app */;
-			productType = "com.apple.product-type.application";
+			productName = "Title Capitalizr Share";
+			productReference = 5860D01F5810FB8C2F9998D5 /* Title Capitalizr Share.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -314,11 +550,19 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 2700;
 				TargetAttributes = {
+					0BE25DAC01E248D6077E61C1 = {
+						DevelopmentTeam = Z64KRUX3W3;
+						ProvisioningStyle = Automatic;
+					};
 					244C95388DCEF89F03664D0E = {
 						DevelopmentTeam = Z64KRUX3W3;
 						ProvisioningStyle = Automatic;
 					};
 					33457571BE31395E979D1403 = {
+						DevelopmentTeam = Z64KRUX3W3;
+						ProvisioningStyle = Automatic;
+					};
+					9D188C9A5275D3B02BF75DC7 = {
 						DevelopmentTeam = Z64KRUX3W3;
 						ProvisioningStyle = Automatic;
 					};
@@ -333,18 +577,43 @@
 			);
 			mainGroup = B6B15857C816C6B40CF28DF3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9518A0F9E540E92D9037BE1B /* XCLocalSwiftPackageReference "TitleCaseKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2F01858BA681859EB9F19A22 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				33457571BE31395E979D1403 /* Title Capitalizr */,
+				9D188C9A5275D3B02BF75DC7 /* Title Capitalizr Share */,
+				0BE25DAC01E248D6077E61C1 /* Title Capitalizr Widgets */,
 				244C95388DCEF89F03664D0E /* Title CapitalizrTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		031493372F2CADEEAF167362 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9C7D4D589D3BF555E97A363 /* Jost-Italic[wght].ttf in Resources */,
+				F30B52957D79B9C31BBBCA25 /* Jost[wght].ttf in Resources */,
+				7AF0DC2E66FA69AB10290825 /* OFL.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81EA86E0879DCC3DF05EFB20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				196F7D79D2CFF05CBEBDB13E /* Jost-Italic[wght].ttf in Resources */,
+				3D9EDE2DEDAE868C2E7E1478 /* Jost[wght].ttf in Resources */,
+				B8EBC39F9CEA1878B445D08A /* OFL.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AAF287FE032D23C2D7F47E18 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -372,6 +641,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				812D7AE92137B241C83133EC /* AppModel.swift in Sources */,
+				F0BF90C893119EF9D4598FBC /* BatchToolsViews.swift in Sources */,
 				F8163AF50B22843029CFE137 /* Bauhaus.swift in Sources */,
 				C7A7E1A9EF3ED885A59FB73F /* ContentView.swift in Sources */,
 				53790E05CD8867E90BAB62FB /* DocxReader.swift in Sources */,
@@ -387,17 +658,43 @@
 				53A5851FF9E450132F2ECA10 /* GrammarChecker.swift in Sources */,
 				FF296D76C556911A3093E238 /* GrammarIssue.swift in Sources */,
 				19616CD2C2A547714779FC79 /* IssuesView.swift in Sources */,
+				5E9F475BDC7571B18E549535 /* LibraryViews.swift in Sources */,
 				3357F3C584430978133A3977 /* Models.swift in Sources */,
+				A080326B9963F8CA01FBE1BD /* OrchestrAccess.swift in Sources */,
+				30A7054324C1D6C15B39504C /* OrchestrLink.swift in Sources */,
+				85E7BAF015EBAA52227EBAE8 /* OrchestrToken.swift in Sources */,
 				51FDE3FAC50BD3FDE8BBDB7E /* PaywallView.swift in Sources */,
 				9183515FD330A141A898100F /* Platform.swift in Sources */,
 				3E048D28417C0DA5AC8DFF22 /* PlatformExport.swift in Sources */,
 				E618D3309ED7ECCB7109446D /* ProStore.swift in Sources */,
 				0C2237A2E91CA21161CB8919 /* SettingsView.swift in Sources */,
+				CAF9855506E7839B159F5234 /* SharedVault.swift in Sources */,
 				BED6128C2878FBBE26F258B0 /* SmartCapitalizer.swift in Sources */,
 				85642B1CC4B13E9F8E79242D /* SpellChecker.swift in Sources */,
 				BF302E3301DE41A34290E590 /* TextReaders.swift in Sources */,
+				ACF9FAE2DC7EDBFF8E2269EF /* TitleIntents.swift in Sources */,
+				B69BD447A657C4C176D6DCED /* TitleWorkspaceView.swift in Sources */,
 				0614AC284D8390E0A06843A0 /* Title_CapitalizrApp.swift in Sources */,
 				2B36A7A493D5C9A317DE89C5 /* Zip.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EB25F1A4D5994BCB8221B96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30CB879C6537C83A68AAEB6 /* SharedVault.swift in Sources */,
+				1A49773F239E372199E2347D /* TitleWidgets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7C0914AD8B48AE5B4B5932C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A37F100769B70EDF84AE30C /* Bauhaus.swift in Sources */,
+				39014C5EE6FD44A94628862C /* ShareViewController.swift in Sources */,
+				E6553A418ECF2315AAB1B256 /* SharedVault.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C154218E54EB4BA6908AB5A2 /* AppModelTests.swift in Sources */,
 				C600EDC0EE0408906AA14E1F /* EssayFormatterTests.swift in Sources */,
 				8D4DD7B98AC5347F993A9F1D /* Title_CapitalizrTests.swift in Sources */,
 			);
@@ -418,6 +716,19 @@
 			target = 33457571BE31395E979D1403 /* Title Capitalizr */;
 			targetProxy = 88ADBB3A7DE17B0E6AE9C53C /* PBXContainerItemProxy */;
 		};
+		F0B05868356A46E80DCC6D6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0BE25DAC01E248D6077E61C1 /* Title Capitalizr Widgets */;
+			targetProxy = 4A1520803AEBED47FC07E864 /* PBXContainerItemProxy */;
+		};
+		FD81990D9B1CF9414456D8FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilters = (
+				ios,
+			);
+			target = 9D188C9A5275D3B02BF75DC7 /* Title Capitalizr Share */;
+			targetProxy = E94F028DAE3DB1AF897324E7 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -426,6 +737,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_ENTITLEMENTS[sdk=iphone*]" = "Title Capitalizr/Title Capitalizr-iOS.entitlements";
 				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Title Capitalizr/Title Capitalizr.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_ASSET_PATHS = "\"Title Capitalizr/Preview Content\"";
@@ -445,7 +757,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -493,6 +805,76 @@
 			};
 			name = Release;
 		};
+		412031CFA263B0C6BFB79A4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_ENTITLEMENTS[sdk=iphone*]" = "Widgets/Widgets-iOS.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Widgets/Widgets-mac.entitlements";
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
+				INFOPLIST_FILE = Widgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.titlecapitalizr.widgets;
+				PRODUCT_NAME = "Title Capitalizr Widgets";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		478DABEECCAB9101794AA876 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.titlecapitalizr.share;
+				PRODUCT_NAME = "Title Capitalizr Share";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5D5874691B16A23938433545 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_ENTITLEMENTS[sdk=iphone*]" = "Widgets/Widgets-iOS.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Widgets/Widgets-mac.entitlements";
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
+				INFOPLIST_FILE = Widgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.titlecapitalizr.widgets;
+				PRODUCT_NAME = "Title Capitalizr Widgets";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		7134C6D24948B8605B788DDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -528,7 +910,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = Z64KRUX3W3;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -547,8 +929,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -566,6 +948,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_ENTITLEMENTS[sdk=iphone*]" = "Title Capitalizr/Title Capitalizr-iOS.entitlements";
 				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "Title Capitalizr/Title Capitalizr.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_ASSET_PATHS = "\"Title Capitalizr/Preview Content\"";
@@ -585,7 +968,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -624,7 +1007,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = Z64KRUX3W3;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -637,8 +1020,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -650,6 +1033,28 @@
 			};
 			name = Release;
 		};
+		D0E06562FF09454C58E64E01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnseong.titlecapitalizr.share;
+				PRODUCT_NAME = "Title Capitalizr Share";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -658,6 +1063,24 @@
 			buildConfigurations = (
 				7134C6D24948B8605B788DDC /* Debug */,
 				B91364543C1F152FD0FDB04C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5A457AA2AF2967102675FA5C /* Build configuration list for PBXNativeTarget "Title Capitalizr Widgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				412031CFA263B0C6BFB79A4A /* Debug */,
+				5D5874691B16A23938433545 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5B62C56B2ACB5F989FF4CEC0 /* Build configuration list for PBXNativeTarget "Title Capitalizr Share" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				478DABEECCAB9101794AA876 /* Debug */,
+				D0E06562FF09454C58E64E01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -681,6 +1104,32 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		9518A0F9E540E92D9037BE1B /* XCLocalSwiftPackageReference "TitleCaseKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = TitleCaseKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7CB675E6E373B84D7C76926D /* TitleCaseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TitleCaseKit;
+		};
+		9428AE37329721A73A3177EC /* TitleCaseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TitleCaseKit;
+		};
+		C5E12EABB2C341F43D52652A /* TitleCaseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TitleCaseKit;
+		};
+		D52D0C36B5EA3877FC937502 /* TitleCaseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TitleCaseKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3A4DA2FC686A77B9B8068C95 /* Project object */;
 }

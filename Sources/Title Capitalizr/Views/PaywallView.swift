@@ -2,7 +2,9 @@
 //  PaywallView.swift
 //  Title Capitalizr
 //
-//  Title Capitalizr Pro: every price, period and trial comes from StoreKit.
+//  Title Capitalizr Pro and Orchestr All Access. Order: All Access (annual, monthly), then the
+//  app's own plans. Every price, period and trial comes from StoreKit. All Access never shows a
+//  trial line.
 //
 
 import SwiftUI
@@ -18,10 +20,9 @@ struct PaywallView: View {
             VStack(alignment: .leading, spacing: Bauhaus.Space.l) {
                 header
                 VStack(alignment: .leading, spacing: Bauhaus.Space.m - 4) {
-                    perk("doc.text", Bauhaus.Palette.blue, "Format whole essays in MLA 9, APA 7 and Chicago")
-                    perk("square.and.arrow.up", Bauhaus.Palette.yellow, "Export Word, PDF, RTF and text, or open in Google Docs")
-                    perk("books.vertical", Bauhaus.Palette.red, "Sorted Works Cited with hanging indents and citation fixes")
-                    perk("doc.on.doc", Bauhaus.Palette.ink, "Full multi-page preview")
+                    ForEach(ProFeature.allCases) { f in
+                        perk(f.systemImage, color(for: f), f.title)
+                    }
                 }
                 plans
                 if store.isPro {
@@ -32,6 +33,7 @@ struct PaywallView: View {
                         Task { await store.purchase(p) }
                     }
                     .disabled(store.product(selected) == nil || store.busy != nil)
+                    .accessibilityIdentifier("paywall-buy")
                 }
                 if let m = store.message {
                     Text(m).font(Bauhaus.Typo.body).fixedSize(horizontal: false, vertical: true)
@@ -44,19 +46,31 @@ struct PaywallView: View {
                 .font(Bauhaus.Typo.font(14, weight: .semibold, relativeTo: .footnote))
                 .buttonStyle(.plain)
                 .foregroundStyle(Bauhaus.Palette.blue)
-                Text("The yearly plan renews automatically unless cancelled at least 24 hours before the end of the period. Manage or cancel it in your App Store account settings. Lifetime is a one-time purchase. Title capitalization, grammar and spelling checks stay free.")
+                Text("Subscriptions renew automatically unless cancelled at least 24 hours before the end of the period. Manage or cancel them in your App Store account settings. Lifetime is a one-time purchase. Title case in Title Case, MLA and APA, history and the basic text tools stay free.")
                     .font(Bauhaus.Typo.caption).foregroundStyle(Bauhaus.Palette.inkSecondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
             .padding(Bauhaus.Space.l)
-            .frame(maxWidth: 560)
+            .frame(maxWidth: 600)
             .frame(maxWidth: .infinity)
         }
         .bauhausScreen()
         #if os(macOS)
-        .frame(minWidth: 480, minHeight: 640)
+        .frame(minWidth: 520, minHeight: 680)
         #endif
-        .task { if store.products.isEmpty { await store.loadProducts() } }
+        .task {
+            if store.rows.isEmpty { await store.loadProducts() }
+            if store.product(selected) == nil, let first = store.rows.first(where: { $0.kind == .own }) ?? store.rows.first { selected = first.id }
+        }
+    }
+
+    private func color(for f: ProFeature) -> Color {
+        switch f {
+        case .guides, .essay: return Bauhaus.Palette.blue
+        case .batch, .dictionary: return Bauhaus.Palette.yellow
+        case .tools, .shortcuts: return Bauhaus.Palette.ink
+        case .ai: return Bauhaus.Palette.red
+        }
     }
 
     private var header: some View {
@@ -73,6 +87,7 @@ struct PaywallView: View {
                     .overlay(Rectangle().stroke(Bauhaus.Palette.ink, lineWidth: Bauhaus.Rule.regular))
             }
             .buttonStyle(.plain)
+            .keyboardShortcut(.cancelAction)
             .accessibilityLabel("Close")
         }
     }
@@ -97,27 +112,36 @@ struct PaywallView: View {
             }
         case .loaded:
             VStack(spacing: 0) {
-                ForEach(Array(store.products.enumerated()), id: \.element.id) { i, p in
-                    planRow(p)
-                    if i < store.products.count - 1 { HRule() }
+                ForEach(Array(store.rows.enumerated()), id: \.element.id) { i, row in
+                    planRow(row)
+                    if i < store.rows.count - 1 { HRule() }
                 }
             }
             .overlay(Rectangle().stroke(Bauhaus.Palette.ink, lineWidth: Bauhaus.Rule.regular))
         }
     }
 
-    private func planRow(_ p: Product) -> some View {
-        let isSelected = selected == p.id
-        return Button { selected = p.id } label: {
-            HStack(spacing: Bauhaus.Space.m - 4) {
-                Image(systemName: isSelected ? "checkmark.square.fill" : "square")
-                    .font(.system(size: 22, weight: .semibold))
+    private func planRow(_ row: OrchestrAccess.Row) -> some View {
+        let isSelected = selected == row.id
+        let owned = store.access.ownedProductIDs.contains(row.id)
+        return Button { selected = row.id } label: {
+            HStack(alignment: .top, spacing: Bauhaus.Space.m - 4) {
+                Image(systemName: "checkmark")
+                    .font(.system(size: 18, weight: .bold))
+                    .opacity(isSelected ? 1 : 0)
+                    .frame(width: 20)
+                Image(systemName: row.glyph).font(.system(size: 18, weight: .semibold)).frame(width: 24)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(p.id == ProProductID.yearly ? "YEARLY" : "LIFETIME").font(Bauhaus.Typo.button).tracking(1.2)
-                    Text(subtitle(p)).font(Bauhaus.Typo.caption).opacity(0.9)
+                    Text(title(row).uppercased()).font(Bauhaus.Typo.button).tracking(1.2)
+                    Text(subtitle(row)).font(Bauhaus.Typo.caption).opacity(0.9)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.leading)
                 }
-                Spacer()
-                Text(p.displayPrice).font(Bauhaus.Typo.title)
+                Spacer(minLength: Bauhaus.Space.s)
+                VStack(alignment: .trailing, spacing: 0) {
+                    Text(row.product.displayPrice).font(Bauhaus.Typo.title)
+                    if !row.periodText.isEmpty { Text(row.periodText).font(Bauhaus.Typo.caption) }
+                }
             }
             .foregroundStyle(isSelected ? Bauhaus.Palette.ground : Bauhaus.Palette.ink)
             .padding(Bauhaus.Space.m)
@@ -125,23 +149,34 @@ struct PaywallView: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
+        .disabled(owned)
         .accessibilityAddTraits(isSelected ? .isSelected : [])
+        .accessibilityLabel("\(title(row)), \(row.product.displayPrice) \(row.periodText)")
     }
 
-    private func subtitle(_ p: Product) -> String {
-        if let sub = p.subscription {
-            var s = "\(p.displayPrice) per \(sub.subscriptionPeriod.unitText)"
+    private func title(_ row: OrchestrAccess.Row) -> String {
+        switch row.kind {
+        case .allaccess: return row.title + (row.product.subscription?.subscriptionPeriod.unit == .month ? " Monthly" : " Annual")
+        case .own, .bundle: return row.id == ProProductID.lifetime ? "Pro Lifetime" : (row.id == ProProductID.yearly ? "Pro Yearly" : row.title)
+        }
+    }
+
+    private func subtitle(_ row: OrchestrAccess.Row) -> String {
+        if row.kind == .allaccess { return row.subtitle ?? "" }
+        if let sub = row.product.subscription {
+            var s = "Title Capitalizr Pro, \(row.product.displayPrice) per \(sub.subscriptionPeriod.unitText)"
             if store.trialEligible, let offer = sub.introductoryOffer, offer.paymentMode == .freeTrial {
                 s = "\(offer.period.lengthText) free trial, then " + s
             }
             return s
         }
-        return "One payment, yours to keep"
+        return "Title Capitalizr Pro. One payment, yours to keep."
     }
 
     private var buyTitle: String {
-        guard let p = store.product(selected) else { return "Choose a plan" }
-        if p.subscription != nil, store.trialEligible, p.subscription?.introductoryOffer?.paymentMode == .freeTrial {
+        guard let row = store.rows.first(where: { $0.id == selected }) else { return "Choose a plan" }
+        let p = row.product
+        if row.kind == .own, p.subscription != nil, store.trialEligible, p.subscription?.introductoryOffer?.paymentMode == .freeTrial {
             return "Start free trial"
         }
         return "Buy for \(p.displayPrice)"

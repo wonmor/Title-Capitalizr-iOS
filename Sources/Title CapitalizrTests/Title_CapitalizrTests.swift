@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import Title_Capitalizr
+import TitleCaseKit
 
 final class Title_CapitalizrTests: XCTestCase {
 
@@ -105,7 +106,7 @@ final class Title_CapitalizrTests: XCTestCase {
         XCTAssertFalse(smart.availability.isAvailable)
         let result = await smart.capitalize("the lord of the rings", style: .mla)
         XCTAssertTrue(result.usedFallback)
-        XCTAssertEqual(result.title, Capitalizer(inputLine: "the lord of the rings").capitalizeTitle(selectedOutput: .mla))
+        XCTAssertEqual(result.title, TitleCaseEngine.apply("the lord of the rings", guide: .mla))
         let alternatives = await smart.suggestAlternatives(for: "the lord of the rings", style: .mla)
         XCTAssertTrue(alternatives.isEmpty)
         let review = await smart.reviewGrammar("a apple")
